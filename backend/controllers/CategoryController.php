@@ -55,7 +55,7 @@ class CategoryController extends Controller
              * . Ngược lại, nếu người dùng không có quyền "admin", thì hành động sẽ bị từ chối truy cập (return false).
              */
             'access' => [
-                'class' => AccessControl::className(),
+                'class' => \yii\filters\AccessControl::className(),
                 'rules' => [
                     [
                         'actions' => ['login', 'error'],
@@ -68,7 +68,7 @@ class CategoryController extends Controller
                 ],
             ],
             'verbs' => [
-                'class' => VerbFilter::className(),
+                'class' => \yii\filters\VerbFilter::className(),
                 'actions' => [
                     'logout' => ['post','get'],
                 ],

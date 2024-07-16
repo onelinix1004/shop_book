@@ -88,28 +88,25 @@
         <br>
 
         <?php $form = \yii\bootstrap5\ActiveForm::begin(['layout' => 'horizontal']);
-        use yii\bootstrap\Html; 
-        use yii\bootstrap\ActiveForm;?>
-
-        <?= $form->field($model, 'username')->textInput(['disabled' => true]) ?>
+        use yii\bootstrap5\Html; 
+        use yii\bootstrap5\ActiveForm;?>
+        <div class="form-group">
+            <?= $form->field($model, 'username')->textInput(['disabled' => true]) ?>
+        </div>
 
         <div class="form-group">
-            <i class="icon fas fa-envelope"></i>
             <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
         </div>
 
         <div class="form-group">
-            <i class="icon fas fa-user"></i>
             <?= $form->field($model, 'fullname')->textInput(['maxlength' => true]) ?>
         </div>
 
         <div class="form-group">
-            <i class="icon fas fa-phone"></i>
             <?= $form->field($model, 'phone')->textInput(['maxlength' => true]) ?>
         </div>
 
         <div class="form-group">
-            <i class="icon fas fa-address-card"></i>
             <?= $form->field($model, 'address')->textInput(['maxlength' => true]) ?>
         </div>
 
