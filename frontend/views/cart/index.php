@@ -9,23 +9,16 @@
 <body>
 
 <?php use yii\widgets\ActiveForm; ?>
-<script src="js/jquery.min.js"></script>
 <div class="page-title">
     <div class="container">
         <div class="row">
             <div class="col-md-10 produti">
-                <h4>GIỎ HÀNG</h4>
+                <h4><i class="fa fa-cubes"></i> Giỏ Hàng</h4>
             </div>
             <div class="col-md-2 cart">
-                <h4><a href="#"><i class="fa fa-shopping-cart"></i> Giỏ hàng (<?=$total?> items)</a></h4>
-                <ul>
-                    <li><a href="index.php">Trang chủ /</a></li>
-                    <li><a href="index.php">Giỏ hàng</a></li>
-                </ul>
             </div>
         </div>
     </div>
-</div>
 <!-- shop-page -->
 <div class="container checking-area">
     <div class="row">

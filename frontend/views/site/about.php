@@ -14,15 +14,9 @@
     <div class="container">
         <div class="row">
             <div class="col-md-10 produti">
-                <h4><i class="fa fa-cubes"></i> products</h4>
+                <h4><i class="fa fa-cubes"></i> About</h4>
             </div>
             <div class="col-md-2 cart">
-            <h4><a href="index.php?r=cart"><i class="fa fa-shopping-basket"></i> Giỏ hàng</a></h4>
-                <ul>
-                    <li><a href="#">home /</a></li>
-                    <li><a href="#">products</a></li>
-                </ul>
-            </div>
         </div>
     </div>
 </div>
