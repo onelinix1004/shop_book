@@ -41,7 +41,7 @@
 
                 <div class="col-md-8 col-sm-12 text-center ftco-animate">
                     <span class="subheading">Welcome</span>
-                    <h1 class="mb-4">The Best Coffee Testing Experience</h1>
+                    <h1 class="mb-4">The Best Book Testing Experience</h1>
                     <p class="mb-4 mb-md-5">A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
                 </div>
 
@@ -142,7 +142,7 @@
                     <span class="subheading">Discover</span>
                     <h2 class="mb-4">Our Book</h2>
                     <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-                    <p><a href="#" class="btn btn-primary btn-outline-primary px-4 py-3">View Full Menu</a></p>
+                    <p><a href="#" class="btn btn-primary btn-outline-primary px-4 py-3">View Full Book</a></p>
                 </div>
             </div>
             <div class="col-md-6">
@@ -184,7 +184,7 @@
                             <div class="text">
                                 <div class="icon"><span class="flaticon-coffee-cup"></span></div>
                                 <strong class="number" data-number="100">0</strong>
-                                <span>Coffee Branches</span>
+                                <span>Book Branches</span>
                             </div>
                         </div>
                     </div>
@@ -226,7 +226,7 @@
         <div class="row justify-content-center mb-5 pb-3">
             <div class="col-md-7 heading-section ftco-animate text-center">
                 <span class="subheading">Discover</span>
-                <h2 class="mb-4">Best Coffee Sellers</h2>
+                <h2 class="mb-4">Best Book Sellers</h2>
                 <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
             </div>
         </div>

@@ -106,7 +106,7 @@ class ProductController extends Controller
  
              if ($model->file) {
                  $imageName = 'product' . rand(1, 100000);
-                 $model->file->saveAs('upload/' . $imageName . '.' . $model->file->extension);
+                 $model->file->saveAs(Yii::getAlias('@frontend/web/upload/') . $imageName . '.' . $model->file->extension);
                  $model->image = 'upload/' . $imageName . '.' . $model->file->extension;
              }
  

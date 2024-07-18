@@ -57,7 +57,7 @@
                         <?php foreach($cartstore as $product): ?>
                             <tr>
                                 <td>
-                                    <img src="<?= Yii::getAlias('@backendUrl/') . $product->image ?>" alt="img" style="width: 80px;height: 76px">
+                                    <img src="<?=  $product->image ?>" alt="img" style="width: 80px;height: 76px">
                                 </td>
                                 <td class="cart-title">
                                     <a href="#"><?=$product->name?></a>

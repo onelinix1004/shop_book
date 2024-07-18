@@ -155,7 +155,7 @@ $model->amount = $cost;
                         <?php foreach ($product as $item): ?>
                             <li>
                                 <!--<img src="/cafe/backend/web/<?= $item->image ?>" alt="img" style="width: 50px;height: 50px">-->
-                                <img src="<?= Yii::getAlias('@backendUrl/') . $item->image ?>" alt="img"
+                                <img src="<?=  $item->image ?>" alt="img"
                                      style="width: 50px;height: 50px">
                                 <div>
                                     <h6><a href="#"><?= $item->name ?></a></h6>

@@ -78,7 +78,7 @@
                 <div class="col-md-4 col-sm-6">
                     <a href="index.php?r=site/view&id=<?=$product->id?>">
                    
-                    <img src="<?= Yii::getAlias('@backendUrl/') . $product->image ?>" alt="img" style="width: 262px;height: 290px">
+                    <img src="<?= $product->image ?>" alt="img" style="width: 262px;height: 290px">
                     <div class="text">
                         <span>
                         <?=$product->name?> </span>

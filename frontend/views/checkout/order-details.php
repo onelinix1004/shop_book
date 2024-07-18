@@ -106,7 +106,7 @@
             <tr>
                 <td><?= $orderItem->product->name ?></td>
                 <td>
-                    <img src="<?= Yii::getAlias('@backendUrl/') . $orderItem->product->image ?>" alt="Sách"
+                    <img src="<?= $orderItem->product->image ?>" alt="Sách"
                          style="width: 80px; height: 76px;">
                 </td>
                 <td><?= $orderItem->quantity ?></td>
