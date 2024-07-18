@@ -1,3 +1,13 @@
+<?php
+use yii\helpers\Html;
+use yii\bootstrap\Nav;
+use yii\bootstrap\NavBar;
+use yii\widgets\Breadcrumbs;
+use frontend\assets\AppAsset;
+use common\widgets\Alert;
+use backend\models\Category;
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,6 +56,10 @@
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"><i class="fas fa-book"></i> Loại Sách</a>
                         <div class="dropdown-menu">
                             <input type="text" id="searchCategoryInput" class="dropdown-item" placeholder="Tìm kiếm theo loại sách...">
+                            <?php $categories = Category::find()->all(); ?>
+                            <?php foreach ($categories as $category): ?>
+                                <a class="dropdown-item" href="index.php?r=site/category&id=<?= $category->id ?>"><?= $category->name ?></a>
+                            <?php endforeach; ?>
                         </div>
                     </li>
                     <li class="nav-item"><a href="index.php?r=cart" class="nav-link"><i class="fas fa-shopping-cart"></i> Giỏ hàng</a></li>
@@ -337,6 +351,88 @@
         </div>
     </div>
 </section>
+<section class="ftco-section img" id="ftco-testimony" style="background-image: url(asset/images/pexels-cottonbro-4861377.jpg);"  data-stellar-background-ratio="0.5">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row justify-content-center mb-5">
+            <div class="col-md-7 heading-section text-center ftco-animate">
+                <span class="subheading">Testimony</span>
+                <h2 class="mb-4">Customers Says</h2>
+                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+            </div>
+        </div>
+    </div>
+    <div class="container-wrap">
+        <div class="row d-flex no-gutters">
+            <div class="col-lg align-self-sm-end">
+                <div class="testimony">
+                    <blockquote>
+                        <p>&ldquo;Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small.&rdquo;</p>
+                    </blockquote>
+                    <div class="author d-flex mt-4">
+                        <div class="image mr-3 align-self-center">
+                            <img src="images/person_1.jpg" alt="">
+                        </div>
+                        <div class="name align-self-center">Louise Kelly <span class="position">Illustrator Designer</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg align-self-sm-end">
+                <div class="testimony overlay">
+                    <blockquote>
+                        <p>&ldquo;Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.&rdquo;</p>
+                    </blockquote>
+                    <div class="author d-flex mt-4">
+                        <div class="image mr-3 align-self-center">
+                            <img src="images/person_2.jpg" alt="">
+                        </div>
+                        <div class="name align-self-center">Louise Kelly <span class="position">Illustrator Designer</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg align-self-sm-end">
+                <div class="testimony">
+                    <blockquote>
+                        <p>&ldquo;Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small  line of blind text by the name. &rdquo;</p>
+                    </blockquote>
+                    <div class="author d-flex mt-4">
+                        <div class="image mr-3 align-self-center">
+                            <img src="images/person_3.jpg" alt="">
+                        </div>
+                        <div class="name align-self-center">Louise Kelly <span class="position">Illustrator Designer</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg align-self-sm-end">
+                <div class="testimony overlay">
+                    <blockquote>
+                        <p>&ldquo;Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however.&rdquo;</p>
+                    </blockquote>
+                    <div class="author d-flex mt-4">
+                        <div class="image mr-3 align-self-center">
+                            <img src="images/person_2.jpg" alt="">
+                        </div>
+                        <div class="name align-self-center">Louise Kelly <span class="position">Illustrator Designer</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg align-self-sm-end">
+                <div class="testimony">
+                    <blockquote>
+                        <p>&ldquo;Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small  line of blind text by the name. &rdquo;</p>
+                    </blockquote>
+                    <div class="author d-flex mt-4">
+                        <div class="image mr-3 align-self-center">
+                            <img src="images/person_3.jpg" alt="">
+                        </div>
+                        <div class="name align-self-center">Louise Kelly <span class="position">Illustrator Designer</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- loader -->
 <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 

@@ -1,6 +1,13 @@
 <?php
 use yii\helpers\Html;
 use yii\bootstrap5\ActiveForm;
+use yii\bootstrap\Nav;
+use yii\bootstrap\NavBar;
+use yii\widgets\Breadcrumbs;
+use frontend\assets\AppAsset;
+use common\widgets\Alert;
+use backend\models\Category;
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -50,6 +57,10 @@ use yii\bootstrap5\ActiveForm;
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"><i class="fas fa-book"></i> Loại Sách</a>
                         <div class="dropdown-menu">
                             <input type="text" id="searchCategoryInput" class="dropdown-item" placeholder="Tìm kiếm theo loại sách...">
+                            <?php $categories = Category::find()->all(); ?>
+                            <?php foreach ($categories as $category): ?>
+                                <a class="dropdown-item" href="index.php?r=site/category&id=<?= $category->id ?>"><?= $category->name ?></a>
+                            <?php endforeach; ?>
                         </div>
                     </li>
                     <li class="nav-item"><a href="index.php?r=cart" class="nav-link"><i class="fas fa-shopping-cart"></i> Giỏ hàng</a></li>
