@@ -1,96 +1,136 @@
-<?php 
+<?php
 use yii\helpers\Html;
 use yii\bootstrap5\ActiveForm;
- ?>
-<!--end-navbar-->
-<div class="page-title">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-10 produti">
-                <h4><i class="fa fa-envelope"></i> Liên hệ</h4>
-            </div>
-            <div class="col-md-2 cart">
-                <h4><a href="#"><i class="fa fa-shopping-cart"></i> Giỏ hàng (<?=$total?> items)</a></h4>
-                <ul>
-                    <li><a href="index.php">Trang chủ /</a></li>
-                    <li><a href="#">Liên hệ</a></li>
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Great+Vibes" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flaticon@latest/css/flaticon.css">
+
+
+    <link rel="stylesheet" href="asset/css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="asset/css//animate.css">
+
+    <link rel="stylesheet" href="asset/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="asset/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="asset/css/magnific-popup.css">
+
+    <link rel="stylesheet" href="asset/css/aos.css">
+
+    <link rel="stylesheet" href="asset/css/ionicons.min.css">
+
+    <link rel="stylesheet" href="asset/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="css/jquery.timepicker.css">
+
+
+    <link rel="stylesheet" href="asset/css/flaticon.css">
+    <link rel="stylesheet" href="asset/css/icomon.css">
+    <link rel="stylesheet" href="asset/css/style.css">
+</head>
+<body>
+<!-- END nav -->
+<div class="container header">
+    <nav id="myNavbar" class="navbar navbar-expand-lg navbar-dark bg-dark ftco-navbar-light" role="navigation">
+        <div class="container">
+            <a class="navbar-brand" href="index.php">
+                <i class="fas fa-book" style="font-size: 30px; margin-right: 5px;"></i>
+                <span style="font-size: 20px;">Book Store OLD</span>
+            </a>
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item active"><a href="index.php" class="nav-link"><i class="fas fa-home"></i> Trang chủ</a></li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"><i class="fas fa-book"></i> Loại Sách</a>
+                        <div class="dropdown-menu">
+                            <input type="text" id="searchCategoryInput" class="dropdown-item" placeholder="Tìm kiếm theo loại sách...">
+                        </div>
+                    </li>
+                    <li class="nav-item"><a href="index.php?r=cart" class="nav-link"><i class="fas fa-shopping-cart"></i> Giỏ hàng</a></li>
+                    <li class="nav-item"><a href="index.php?r=site/about" class="nav-link"><i class="fas fa-info-circle"></i> Giới thiệu</a></li>
+                    <li class="nav-item"><a href="index.php?r=site/contact" class="nav-link"><i class="fas fa-envelope"></i> Liên hệ</a></li>
                 </ul>
             </div>
         </div>
-    </div>
+    </nav>
 </div>
-<!-- shop-page -->
-<div class="container">
-    <div class="row content">
-        <div class="col-md-9">
-            
-            <div class="row contact-all">
-                <div class="triggerAnimation animated" data-animate="fadeInLeft">
-                    <?php $form = ActiveForm::begin(['id' => 'contact-form']); ?>
-                        <h1><i class="fa fa-phone"></i> Liên hệ với chúng tôi</h1>
-                        <div class="text-fields">
-                            <div class="float-input">
-                                <?= $form->field($model, 'name')->textInput(['placeholder'=>'Họ và tên'])->label(false) ?>
-                                <span><i class="fa fa-user"></i></span>
-                            </div>
-                            <div class="float-input">
-                                <?= $form->field($model, 'email')->textInput(['placeholder'=>'Email'])->label(false) ?>
-                                <span><i class="fa fa-envelope-o"></i></span>
-                            </div>
-                            <div class="float-input">
-                                <?= $form->field($model, 'phone')->textInput(['placeholder'=>'Số điện thoại'])->label(false) ?>
-                                <span><i class="fa fa-phone"></i></span>
-                            </div>
-                        </div>
-                        <div class="submit-area">
-                            <?= $form->field($model, 'body')->textarea(['placeholder'=>'Nội dung'])->label(false) ?>
-                            <input type="submit" id="submit_contact" class="main-button" value="gửi liên hệ">
-                            <div id="msg" class="message">
-                            </div>
-                        </div>
-                    <?php ActiveForm::end(); ?>
+
+<section class="home-slider owl-carousel">
+
+    <div class="slider-item" style="background-image: url(asset/images/pexels-ivo-rainha-527110-1290141.jpg);" data-stellar-background-ratio="0.5">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row slider-text justify-content-center align-items-center">
+
+                <div class="col-md-7 col-sm-12 text-center ftco-animate">
+                    <h1 class="mb-3 mt-5 bread">About Us</h1>
+                    <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home</a></span> <span>About</span></p>
                 </div>
-            </div>
-        </div>
-        <div class="col-md-3 shop-sidebar">
-            <div class="sidebar-widgets">
-                <div class="row right-cal">
-                    <h4><i class="fa fa-clock-o"></i> Giờ mở cửa</h4>
-                    <ul>
-                        <li><a href="#">Thứ hai<span>8am-5pm</span></a></li>
-                        <li class="colored"><a href="#">Thứ ba<span>8am-5pm</span></a></li>
-                        <li><a href="#">Thứ tư<span>8am-5pm</span></a></li>
-                        <li class="colored"><a href="#">Thứ năm<span>8am-5pm</span></a></li>
-                        <li><a href="#">Thứ sáu<span>8am-5pm</span></a></li>
-                        <li class="colored"><a href="#">Thứ bảy<span>8am-5pm</span></a></li>
-                        <li><a href="#">Chủ nhật<span>8am-5pm</span></a></li>
-                    </ul>
-                </div>
-                <div class="row right-inf">
-                    <h4><i class="fa fa-info-circle"></i> Thông tin liên hệ</h4>
-                    <ul>
-                        <li>
-                            <p>THE BOOK STORE</p>
-                        </li>
-                        <li>
-                            <p>334 Đ. Nguyễn Trãi, Thanh Xuân Trung, Thanh Xuân, Hà Nội</p>
-                        </li>
-                    </ul>
-                    <ul>
-                        <li><a href="#"><i class="fa fa-phone "></i>   Hotline : 0123 456 789</a></li>
-                        <li><a href="#"><i class="fa fa-mobile fa-lg"></i>&ensp; Phone: 0123 456 789</a></li>
-                        <li><a href="#"><i class="fa fa-envelope"></i> Email : duong30402@gmail.com</a></li>
-                    </ul>
-                </div>
+
             </div>
         </div>
     </div>
-</div>
-<!--end-shop-page -->
-<!-- partners box -->
-<div class="container">
-</div>
-<!--prize-->
+</section>
+
+
+<section class="ftco-section contact-section">
+    <div class="container mt-5">
+        <div class="row block-9">
+            <div class="col-md-4 contact-info ftco-animate">
+                <div class="row">
+                    <div class="col-md-12 mb-4">
+                        <h2 class="h4">Contact Information</h2>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <p><span>Address:</span> 198 West 21th Street, Suite 721 New York NY 10016</p>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <p><span>Phone:</span> <a href="tel://1234567920">+ 1235 2355 98</a></p>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <p><span>Email:</span> <a href="mailto:info@yoursite.com">info@yoursite.com</a></p>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <p><span>Website:</span> <a href="#">yoursite.com</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-1"></div>
+            <div class="col-md-6 ftco-animate">
+                <?php $form = ActiveForm::begin(['id' => 'contact-form', 'options' => ['class' => 'contact-form']]); ?>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <?= $form->field($model, 'name')->textInput(['class' => 'form-control', 'placeholder' => 'Your Name'])->label(false) ?>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <?= $form->field($model, 'email')->textInput(['class' => 'form-control', 'placeholder' => 'Your Email'])->label(false) ?>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <?= $form->field($model, 'phone')->textInput(['class' => 'form-control', 'placeholder' => 'Your Phone'])->label(false) ?>
+                </div>
+                <div class="form-group">
+                    <?= $form->field($model, 'body')->textarea(['class' => 'form-control', 'rows' => 7, 'placeholder' => 'Message'])->label(false) ?>
+                </div>
+                <div class="form-group">
+                    <?= Html::submitButton('Send Message', ['class' => 'btn btn-primary py-3 px-5']) ?>
+                </div>
+                <?php ActiveForm::end(); ?>
+            </div>
+        </div>
+    </div>
+</section>
+
 <div class="prize">
     <style>
         .prize {
@@ -133,5 +173,26 @@ use yii\bootstrap5\ActiveForm;
     </div>
 </div>
 
-<!--end-prize-->
-<!--footer-->
+<!-- loader -->
+<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+
+
+<script src="asset/js/jquery.min.js"></script>
+<script src="asset/js/jquery-migrate-3.0.1.min.js"></script>
+<script src="asset/s/popper.min.js"></script>
+<script src="asset/js/bootstrap.min.js"></script>
+<script src="asset/js/jquery.easing.1.3.js"></script>
+<script src="asset/js/jquery.waypoints.min.js"></script>
+<script src="asset/js/jquery.stellar.min.js"></script>
+<script src="asset/js/owl.carousel.min.js"></script>
+<script src="asset/js/jquery.magnific-popup.min.js"></script>
+<script src="asset/js/aos.js"></script>
+<script src="asset/js/jquery.animateNumber.min.js"></script>
+<script src="asset/js/bootstrap-datepicker.js"></script>
+<script src="asset/js/jquery.timepicker.min.js"></script>
+<script src="asset/js/scrollax.min.js"></script>
+<script src="asset/js/google-map.js"></script>
+<script src="asset/js/main.js"></script>
+
+</body>
+</html>

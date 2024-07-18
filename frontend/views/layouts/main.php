@@ -58,34 +58,7 @@ AppAsset::register($this);
 </div>
 <!--end-top-strip-->
 <!--navbar-->
-<div class="container header">
-    <nav id="myNavbar" class="navbar navbar-expand-lg navbar-dark bg-dark ftco-navbar-light" role="navigation">
-        <div class="container">
-            <a class="navbar-brand" href="index.php">
-                <i class="fas fa-book" style="font-size: 30px; margin-right: 5px;"></i>
-                <span style="font-size: 20px;">Book Store OLD</span>
-            </a>
-            <div class="collapse navbar-collapse" id="navbarContent">
-                <ul class="navbar-nav mx-auto">
-                    <li class="nav-item active"><a href="index.php" class="nav-link"><i class="fas fa-home"></i> Trang chủ</a></li>
-                    <li class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"><i class="fas fa-book"></i> Loại Sách</a>
-                        <div class="dropdown-menu">
-                            <input type="text" id="searchCategoryInput" class="dropdown-item" placeholder="Tìm kiếm theo loại sách...">
-                            <?php $categories = Category::find()->all(); ?>
-                            <?php foreach ($categories as $category): ?>
-                                <a class="dropdown-item" href="index.php?r=site/category&id=<?= $category->id ?>"><?= $category->name ?></a>
-                            <?php endforeach; ?>
-                        </div>
-                    </li>
-                    <li class="nav-item"><a href="index.php?r=cart" class="nav-link"><i class="fas fa-shopping-cart"></i> Giỏ hàng</a></li>
-                    <li class="nav-item"><a href="index.php?r=site/about" class="nav-link"><i class="fas fa-info-circle"></i> Giới thiệu</a></li>
-                    <li class="nav-item"><a href="index.php?r=site/contact" class="nav-link"><i class="fas fa-envelope"></i> Liên hệ</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-</div>
+
 <!--end-navbar-->
 <!--flex-slider-->
 <?= Alert::widget() ?>
