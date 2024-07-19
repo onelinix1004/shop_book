@@ -48,7 +48,7 @@
             <br>
 
             <?php $form = \yii\bootstrap5\ActiveForm::begin(['id' => 'login-form', 'layout' => 'horizontal']);
-            use yii\bootstrap\Html; 
+            use yii\bootstrap\Html;
             use yii\bootstrap\ActiveForm;?>
 
             <!-- Định dạng cho trường "username" -->
