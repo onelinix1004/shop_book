@@ -76,78 +76,13 @@ use backend\models\Category;
 
 <!-- shop-page -->
 <!-- Rest of the code remains the same -->
-<div class="container">
-    <div class="row">
+<section class="ftco-section">
+    <div class="container">
         <div class="col-md-12">
             <div class="search-bar-container">
                 <input type="text" id="searchInput" placeholder="Tìm kiếm theo tên sách...">
             </div>
         </div>
-    </div>
-
-
-    <div class="row content">
-        <div class="col-md-9 shop-section">
-            <div class="row">
-                <div class="col-md-12 latest">
-                    <h4 class="pull-left"><?php echo 'Có tổng cộng ' . $count . ' sách'; ?></h4>
-                    <ul class="pagination-lít pull-right">
-
-                    </ul>
-                </div>
-            </div>
-            <br>
-            <!--articles-->
-            <div class="row articles">
-                <?php foreach ($products as $product): ?>
-                    <div class="col-md-4 col-sm-6">
-                        <a href="index.php?r=site/view&id=<?= $product->id ?>">
-
-                            <img src="<?= $product->image ?>" alt="img" style="width: 262px;height: 290px">
-                            <div class="text">
-                        <span>
-                        <?= $product->name ?> </span>
-                                <p>
-                                    <?php $s = number_format($product->price);
-                                    echo 'Giá : ' . $s . ' VNĐ'; ?>
-                                </p>
-                            </div>
-                        </a>
-                    </div>
-                <?php endforeach; ?>
-            </div>
-        </div>
-        <!-- Add this search input above the articles section -->
-
-        <!--end-articles-->
-        <div class="col-md-3 shop-sidebar">
-            <div class="sidebar-widgets">
-
-                <div class="shop-widget">
-                    <h4>Categories</h4>
-                    <ul class="category-shop-list">
-                        <?php $category = backend\models\Category::find()->all(); ?>
-                        <?php foreach ($category as $item): ?>
-                            <?php $count = backend\models\Product::find()->where(['category_id' => $item->id])->count(); ?>
-                            <li>
-                                <a class="accordion-link"
-                                   href="index.php?r=site/category&id=<?= $item->id ?>"><?= $item->name ?>
-                                    <span>(<?= $count ?>)</span></a>
-                                <ul class="accordion-list-content">
-                                </ul>
-                            </li>
-                        <?php endforeach; ?>
-
-
-                    </ul>
-                </div>
-
-            </div>
-        </div>
-    </div>
-</div>
-<section class="ftco-section">
-    <div class="container">
         <div class="row">
             <div class="col-md-12 latest">
                 <h4 class="pull-left"><?php echo 'Có tổng cộng ' . $count . ' sách'; ?></h4>
@@ -192,7 +127,8 @@ use backend\models\Category;
                         <?php $category = backend\models\Category::find()->all(); ?>
                         <?php foreach ($category as $item): ?>
                             <?php $count = backend\models\Product::find()->where(['category_id' => $item->id])->count(); ?>
-                            <li><a href="index.php?r=site/category&id=<?= $item->id ?>"><?= $item->name ?> <span>(<?= $count ?>)</span></a></li>
+                            <li><a href="index.php?r=site/category&id=<?= $item->id ?>"><?= $item->name ?>
+                                    <span>(<?= $count ?>)</span></a></li>
                         <?php endforeach; ?>
                     </div>
                 </div>
