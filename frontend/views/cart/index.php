@@ -1,4 +1,5 @@
 <?php
+
 use yii\helpers\Html;
 use yii\bootstrap5\ActiveForm;
 use yii\bootstrap\Nav;
@@ -52,20 +53,27 @@ use backend\models\Category;
             </a>
             <div class="collapse navbar-collapse" id="navbarContent">
                 <ul class="navbar-nav mx-auto">
-                    <li class="nav-item active"><a href="index.php" class="nav-link"><i class="fas fa-home"></i> Trang chủ</a></li>
+                    <li class="nav-item active"><a href="index.php" class="nav-link"><i class="fas fa-home"></i> Trang
+                            chủ</a></li>
                     <li class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"><i class="fas fa-book"></i> Loại Sách</a>
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"><i class="fas fa-book"></i>
+                            Loại Sách</a>
                         <div class="dropdown-menu">
-                            <input type="text" id="searchCategoryInput" class="dropdown-item" placeholder="Tìm kiếm theo loại sách...">
+                            <input type="text" id="searchCategoryInput" class="dropdown-item"
+                                   placeholder="Tìm kiếm theo loại sách...">
                             <?php $categories = Category::find()->all(); ?>
                             <?php foreach ($categories as $category): ?>
-                                <a class="dropdown-item" href="index.php?r=site/category&id=<?= $category->id ?>"><?= $category->name ?></a>
+                                <a class="dropdown-item"
+                                   href="index.php?r=site/category&id=<?= $category->id ?>"><?= $category->name ?></a>
                             <?php endforeach; ?>
                         </div>
                     </li>
-                    <li class="nav-item"><a href="index.php?r=cart" class="nav-link"><i class="fas fa-shopping-cart"></i> Giỏ hàng</a></li>
-                    <li class="nav-item"><a href="index.php?r=site/about" class="nav-link"><i class="fas fa-info-circle"></i> Giới thiệu</a></li>
-                    <li class="nav-item"><a href="index.php?r=site/contact" class="nav-link"><i class="fas fa-envelope"></i> Liên hệ</a></li>
+                    <li class="nav-item"><a href="index.php?r=cart" class="nav-link"><i
+                                    class="fas fa-shopping-cart"></i> Giỏ hàng</a></li>
+                    <li class="nav-item"><a href="index.php?r=site/about" class="nav-link"><i
+                                    class="fas fa-info-circle"></i> Giới thiệu</a></li>
+                    <li class="nav-item"><a href="index.php?r=site/contact" class="nav-link"><i
+                                    class="fas fa-envelope"></i> Liên hệ</a></li>
                 </ul>
             </div>
         </div>
@@ -74,7 +82,8 @@ use backend\models\Category;
 
 <section class="home-slider owl-carousel">
 
-    <div class="slider-item" style="background-image: url(asset/images/pexels-ivo-rainha-527110-1290141.jpg);" data-stellar-background-ratio="0.5">
+    <div class="slider-item" style="background-image: url(asset/images/pexels-ivo-rainha-527110-1290141.jpg);"
+         data-stellar-background-ratio="0.5">
         <div class="overlay"></div>
         <div class="container">
             <div class="row slider-text justify-content-center align-items-center">
@@ -106,30 +115,37 @@ use backend\models\Category;
                         </tr>
                         </thead>
                         <tbody>
-                        <?php if(!$cartstore):?>
+                        <?php if (!$cartstore): ?>
                             <tr>
-                                <td> <h3 style="color: red">Chưa có sản phẩm nào được thêm vào giỏ!</h3></td>
+                                <td><h3 style="color: white">Chưa có sản phẩm nào được thêm vào giỏ!</h3></td>
                             </tr>
                         <?php else: ?>
-                            <?php foreach($cartstore as $product): ?>
+                            <?php foreach ($cartstore as $product): ?>
                                 <tr class="text-center">
-                                    <td class="product-remove"> <a href="index.php?r=cart/remove&id=<?=$product->id?>" class="glyphicon glyphicon-trash"></a></td>
+                                    <td class="product-remove"><a href="index.php?r=cart/remove&id=<?= $product->id ?>"
+                                                                  class="glyphicon glyphicon-trash"></a></td>
 
-                                    <td class="image-prod"><div class="img" style="background-image:url(<?= $product->image ?>);"></div></td>
-
-                                    <td class="product-name">
-                                        <h3><?php $s= number_format($product->price); echo $s.' VNĐ'; ?></h3>
+                                    <td class="image-prod">
+                                        <div class="img" style="background-image:url(<?= $product->image ?>);"></div>
                                     </td>
 
-                                    <td class="price"><?php $s= number_format($product->price); echo $s.' VNĐ'; ?></td>
+                                    <td class="product-name">
+                                        <h3><?php $s = number_format($product->price);
+                                            echo $s . ' VNĐ'; ?></h3>
+                                    </td>
+
+                                    <td class="price"><?php $s = number_format($product->price);
+                                        echo $s . ' VNĐ'; ?></td>
 
                                     <td class="quantity">
                                         <div class="input-group mb-3">
-                                            <input type="text" name="quantity" class="quantity form-control input-number" value="1" min="1" max="100">
+                                            <input type="text" name="quantity"
+                                                   class="quantity form-control input-number" value="1" min="1"
+                                                   max="100">
                                         </div>
                                     </td>
 
-                                    <td class="total"><?php echo number_format($product->price * $product->quantity).' VNĐ'; ?></td>
+                                    <td class="total"><?php echo number_format($product->price * $product->quantity) . ' VNĐ'; ?></td>
                                 </tr><!-- END TR-->
                             <?php endforeach; ?>
                         <?php endif; ?>
@@ -144,7 +160,7 @@ use backend\models\Category;
                     <h3>Cart Totals</h3>
                     <p class="d-flex">
                         <span>Subtotal</span>
-                        <span><?php echo number_format($cost).' VNĐ'; ?></span>
+                        <span><?php echo number_format($cost) . ' VNĐ'; ?></span>
                     </p>
                     <p class="d-flex">
                         <span>Delivery</span>
@@ -153,20 +169,26 @@ use backend\models\Category;
                     <hr>
                     <p class="d-flex total-price">
                         <span>Total</span>
-                        <span><?php echo number_format($cost).' VNĐ'; ?></span>
+                        <span><?php echo number_format($cost) . ' VNĐ'; ?></span>
                     </p>
                 </div>
                 <p class="text-center"><a href="index.php" class="btn btn-primary py-3 px-4">Tiếp tục mua hàng</a></p>
-                <p class="text-center"><a href="index.php?r=checkout" class="btn btn-primary py-3 px-4">Proceed to Checkout</a></p>
+                <p class="text-center"><a href="index.php?r=checkout" class="btn btn-primary py-3 px-4">Proceed to
+                        Checkout</a></p>
             </div>
         </div>
     </div>
 </section>
 
 
-
 <!-- loader -->
-<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+<div id="ftco-loader" class="show fullscreen">
+    <svg class="circular" width="48px" height="48px">
+        <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/>
+        <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
+                stroke="#F96D00"/>
+    </svg>
+</div>
 
 
 <script src="asset/js/jquery.min.js"></script>

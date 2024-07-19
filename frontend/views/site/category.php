@@ -1,5 +1,4 @@
 <?php
-
 use yii\helpers\Html;
 use yii\bootstrap5\ActiveForm;
 use yii\bootstrap\Nav;
@@ -8,21 +7,16 @@ use yii\widgets\Breadcrumbs;
 use frontend\assets\AppAsset;
 use common\widgets\Alert;
 use backend\models\Category;
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-MJ/56pBrhygBp+g9tOxTE4Z1BF7kfyuHXsKo+va4sfMq4P6IKdZDzNNhYHKrkBLclD9Sx8E86QZko2NCl1prA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Great+Vibes" rel="stylesheet">
 
-
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flaticon@latest/css/flaticon.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
     <link rel="stylesheet" href="asset/css/open-iconic-bootstrap.min.css">
@@ -48,7 +42,7 @@ use backend\models\Category;
         .search-bar-container {
             display: flex;
             justify-content: left;
-            align-items: flex-end;
+            align-items: left;
             margin: 20px auto;
             width: 100%;
         }
@@ -67,9 +61,11 @@ use backend\models\Category;
             width: 100%; /* Keep it at 100% width on focus */
         }
     </style>
+
+
+
 </head>
-<body>
-<!-- END nav -->
+<!--end-navbar-->
 <div class="container header">
     <nav id="myNavbar" class="navbar navbar-expand-lg navbar-dark bg-dark ftco-navbar-light" role="navigation">
         <div class="container">
@@ -79,126 +75,109 @@ use backend\models\Category;
             </a>
             <div class="collapse navbar-collapse" id="navbarContent">
                 <ul class="navbar-nav mx-auto">
-                    <li class="nav-item active"><a href="index.php" class="nav-link"><i class="fas fa-home"></i> Trang
-                            chủ</a></li>
+                    <li class="nav-item active"><a href="index.php" class="nav-link"><i class="fas fa-home"></i> Trang chủ</a></li>
                     <li class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"><i class="fas fa-book"></i>
-                            Loại Sách</a>
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"><i class="fas fa-book"></i> Loại Sách</a>
                         <div class="dropdown-menu">
-                            <input type="text" id="searchCategoryInput" class="dropdown-item"
-                                   placeholder="Tìm kiếm theo loại sách...">
+                            <input type="text" id="searchCategoryInput" class="dropdown-item" placeholder="Tìm kiếm theo loại sách...">
                             <?php $categories = Category::find()->all(); ?>
                             <?php foreach ($categories as $category): ?>
-                                <a class="dropdown-item"
-                                   href="index.php?r=site/category&id=<?= $category->id ?>"><?= $category->name ?></a>
+                                <a class="dropdown-item" href="index.php?r=site/category&id=<?= $category->id ?>"><?= $category->name ?></a>
                             <?php endforeach; ?>
                         </div>
                     </li>
-                    <li class="nav-item"><a href="index.php?r=cart" class="nav-link"><i
-                                    class="fas fa-shopping-cart"></i> Giỏ hàng</a></li>
-                    <li class="nav-item"><a href="index.php?r=site/about" class="nav-link"><i
-                                    class="fas fa-info-circle"></i> Giới thiệu</a></li>
-                    <li class="nav-item"><a href="index.php?r=site/contact" class="nav-link"><i
-                                    class="fas fa-envelope"></i> Liên hệ</a></li>
+                    <li class="nav-item"><a href="index.php?r=cart" class="nav-link"><i class="fas fa-shopping-cart"></i> Giỏ hàng</a></li>
+                    <li class="nav-item"><a href="index.php?r=site/about" class="nav-link"><i class="fas fa-info-circle"></i> Giới thiệu</a></li>
+                    <li class="nav-item"><a href="index.php?r=site/contact" class="nav-link"><i class="fas fa-envelope"></i> Liên hệ</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 </div>
 
-<section class="home-slider owl-carousel">
-
-    <div class="slider-item" style="background-image: url();"
-         data-stellar-background-ratio="0.5">
-        <div class="overlay"></div>
-        <div class="container">
-            <div class="row slider-text justify-content-center align-items-center">
-
-                <div class="col-md-7 col-sm-12 text-center ftco-animate">
-                    <h1 class="mb-3 mt-5 bread">About Us</h1>
-                    <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home</a></span> <span>About</span>
-                    </p>
-                </div>
-
-            </div>
-        </div>
-    </div>
+<section style="height: 100px; background-image: url(asset/images/pexels-ivo-rainha-527110-1290141.jpg);" >
 </section>
 
-<div style="height: 100px; background-image: url(asset/images/pexels-ivo-rainha-527110-1290141.jpg) "></div>
+</div>
 <!-- shop-page -->
 <!-- Rest of the code remains the same -->
-<div class="row" style="right: 100px">
-        <div class="search-bar-container">
-            <input type="text" id="searchInput" placeholder="Tìm kiếm theo tên sách...">
-        </div>
-</div>
-
-
-<div class="row content">
-    <div class="col-md-9 shop-section">
-        <div class="row">
-            <div class="col-md-12 latest">
-                <h4 class="pull-left"><?php echo 'Có tổng cộng '.$count.' sách'; ?></h4>
-                <ul class="pagination-lít pull-right">
-
-                </ul>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="search-bar-container">
+                <input type="text" id="searchInput" placeholder="Tìm kiếm theo tên sách...">
             </div>
-        </div>
-        <br>
-        <!--articles-->
-        <div class="row articles">
-            <?php foreach($products as $product):?>
-                <div class="col-md-4 col-sm-6">
-                    <a href="index.php?r=site/view&id=<?=$product->id?>">
-
-                        <img src="<?= $product->image ?>" alt="img" style="width: 262px;height: 290px">
-                        <div class="text">
-                        <span>
-                        <?=$product->name?> </span>
-                            <p>
-                                <?php $s= number_format($product->price); echo 'Giá : '.$s.' VNĐ'; ?>
-                            </p>
-                        </div>
-                    </a>
-                </div>
-            <?php endforeach;?>
         </div>
     </div>
-    <!-- Add this search input above the articles section -->
 
-    <!--end-articles-->
-    <div class="col-md-3 shop-sidebar">
-        <div class="sidebar-widgets">
 
-            <div class="shop-widget">
-                <h4>Categories</h4>
-                <ul class="category-shop-list">
-                    <?php $category = backend\models\Category::find()->all();?>
-                    <?php foreach ($category as $item): ?>
-                        <?php $count = backend\models\Product::find()->where(['category_id'=>$item->id])->count();?>
-                        <li>
-                            <a class="accordion-link" href="index.php?r=site/category&id=<?=$item->id?>"><?=$item->name?> <span>(<?=$count?>)</span></a>
-                            <ul class="accordion-list-content">
-                            </ul>
-                        </li>
-                    <?php endforeach; ?>
 
-                </ul>
+    <div class="row content">
+        <div class="col-md-9 shop-section">
+            <div class="row">
+                <div class="col-md-12 latest">
+                    <h4 class="pull-left"><?php echo 'Có tổng cộng '.$count.' sách'; ?></h4>
+                    <ul class="pagination-lít pull-right">
+
+                    </ul>
+                </div>
             </div>
+            <br>
+            <!--articles-->
+            <div class="row articles">
+                <?php foreach($products as $product):?>
+                    <div class="col-md-4 col-sm-6">
+                        <a href="index.php?r=site/view&id=<?=$product->id?>">
 
+                            <img src="<?= $product->image ?>" alt="img" style="width: 262px;height: 290px">
+                            <div class="text">
+                        <span>
+                        <?=$product->name?> </span>
+                                <p>
+                                    <?php $s= number_format($product->price); echo 'Giá : '.$s.' VNĐ'; ?>
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                <?php endforeach;?>
+            </div>
+        </div>
+        <!-- Add this search input above the articles section -->
+
+        <!--end-articles-->
+        <div class="col-md-3 shop-sidebar">
+            <div class="sidebar-widgets">
+
+                <div class="shop-widget">
+                    <h4>Categories</h4>
+                    <ul class="category-shop-list">
+                        <?php $category = backend\models\Category::find()->all();?>
+                        <?php foreach ($category as $item): ?>
+                            <?php $count = backend\models\Product::find()->where(['category_id'=>$item->id])->count();?>
+                            <li>
+                                <a class="accordion-link" href="index.php?r=site/category&id=<?=$item->id?>"><?=$item->name?> <span>(<?=$count?>)</span></a>
+                                <ul class="accordion-list-content">
+                                </ul>
+                            </li>
+                        <?php endforeach; ?>
+
+
+                    </ul>
+                </div>
+
+            </div>
         </div>
     </div>
 </div>
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
+    document.addEventListener("DOMContentLoaded", function() {
         const searchInput = document.getElementById("searchInput");
         const articles = document.querySelectorAll(".articles .col-md-4");
 
-        searchInput.addEventListener("input", function () {
+        searchInput.addEventListener("input", function() {
             const searchTerm = searchInput.value.trim().toLowerCase();
 
-            articles.forEach(function (article) {
+            articles.forEach(function(article) {
                 const name = article.querySelector(".text span").innerText.toLowerCase();
 
                 if (name.includes(searchTerm)) {
@@ -210,10 +189,29 @@ use backend\models\Category;
         });
     });
 </script>
-</body>
+
+<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+
+
+<script src="asset/js/jquery.min.js"></script>
+<script src="asset/js/jquery-migrate-3.0.1.min.js"></script>
+<script src="asset/s/popper.min.js"></script>
+<script src="asset/js/bootstrap.min.js"></script>
+<script src="asset/js/jquery.easing.1.3.js"></script>
+<script src="asset/js/jquery.waypoints.min.js"></script>
+<script src="asset/js/jquery.stellar.min.js"></script>
+<script src="asset/js/owl.carousel.min.js"></script>
+<script src="asset/js/jquery.magnific-popup.min.js"></script>
+<script src="asset/js/aos.js"></script>
+<script src="asset/js/jquery.animateNumber.min.js"></script>
+<script src="asset/js/bootstrap-datepicker.js"></script>
+<script src="asset/js/jquery.timepicker.min.js"></script>
+<script src="asset/js/scrollax.min.js"></script>
+<script src="asset/js/google-map.js"></script>
+<script src="asset/js/main.js"></script>
 
 
 <!--prize-->
-
+</html>
 <!--end-prize-->
 <!--footer-->
