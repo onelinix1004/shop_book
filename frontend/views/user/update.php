@@ -9,8 +9,7 @@ $this->title = 'Đăng ký thành viên';
 ?>
 
 
-    <?= $this->render('_form', [
-        'model' => $model,
-    ]) ?>
-
+<?= $this->render('_form', [
+    'model' => $model,
+]) ?>
 

@@ -98,7 +98,6 @@ use backend\models\Category;
 <section style="height: 100px; background-image: url(asset/images/pexels-ivo-rainha-527110-1290141.jpg);" >
 </section>
 
-</div>
 <!-- shop-page -->
 <!-- Rest of the code remains the same -->
 <div class="container">

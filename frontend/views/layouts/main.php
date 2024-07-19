@@ -49,7 +49,7 @@ AppAsset::register($this);
                             <li><a href="/cafe/backend/web"><i class="glyphicon glyphicon-edit"></i> Quản lý Admin</a></li>
                         <?php endif; ?>
                         <li><a href="#"><i class="glyphicon glyphicon-user"></i> <?=Yii::$app->user->identity->username?></a></li>
-                        <li><a href="index.php?r=site/logout">Thoát <i class="glyphicon glyphicon-log-out"></i></a></li>
+                        <li><a href="index.php?r=site/logout">Exit <i class="glyphicon glyphicon-log-out"></i></a></li>
                     <?php endif; ?>
                 </ul>
             </div>
