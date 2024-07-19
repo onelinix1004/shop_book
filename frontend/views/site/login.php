@@ -7,7 +7,7 @@
 
     <style>
         body {
-            background-color: #ffffff; /* Background màu trắng */
+            background-color: #6edff6; /* Background màu trắng */
             font-family: Arial, sans-serif;
             color: #000000; /* Màu chữ đen */
         }
@@ -33,7 +33,7 @@
             position: absolute;
             top: 12px;
             left: 15px;
-            color: #666666; /* Màu icon xám nhạt */
+            color: black; /* Màu icon xám nhạt */
         }
     </style>
 </head>

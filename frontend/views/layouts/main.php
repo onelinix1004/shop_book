@@ -7,27 +7,12 @@ use frontend\assets\AppAsset;
 use common\widgets\Alert;
 use backend\models\Category;
 
-AppAsset::register($this);
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
-    <link rel="icon" type="image/png" href="../assets/img/favicon.png">
-    <title>The Book Store</title>
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum=1">
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="css/style.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="css/font-awesome.css" media="screen">
-    <link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen"/>
-    <link rel="stylesheet" href="css/responsive.css" type="text/css" media="screen"/>
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,700" rel="stylesheet">
@@ -37,7 +22,7 @@ AppAsset::register($this);
 
 
     <link rel="stylesheet" href="asset/css/open-iconic-bootstrap.min.css">
-    <link rel="stylesheet" href="asset/css//animate.css">
+    <link rel="stylesheet" href="asset/css/animate.css">
 
     <link rel="stylesheet" href="asset/css/owl.carousel.min.css">
     <link rel="stylesheet" href="asset/css/owl.theme.default.min.css">
@@ -48,7 +33,7 @@ AppAsset::register($this);
     <link rel="stylesheet" href="asset/css/ionicons.min.css">
 
     <link rel="stylesheet" href="asset/css/bootstrap-datepicker.css">
-    <link rel="stylesheet" href="css/jquery.timepicker.css">
+    <link rel="stylesheet" href="asset/css/jquery.timepicker.css">
 
 
     <link rel="stylesheet" href="asset/css/flaticon.css">
@@ -58,7 +43,7 @@ AppAsset::register($this);
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
     <div class="container">
-        <a class="navbar-brand" href="index.html">Book Old<small>Blend</small></a>
+        <a class="navbar-brand" href="index.html">Coffee<small>Blend</small></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="oi oi-menu"></span> Menu
         </button>
@@ -66,7 +51,7 @@ AppAsset::register($this);
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active"><a href="index.php" class="nav-link">Home</a></li>
                 <li class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"><i class="fas fa-book"></i> Categoty</a>
+                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"> Categoty</a>
                     <div class="dropdown-menu">
                         <?php $categories = Category::find()->all(); ?>
                         <?php foreach ($categories as $category): ?>
@@ -81,11 +66,11 @@ AppAsset::register($this);
                     <li class="nav-item"><a href="index.php?r=site/signup" class="nav-link"></i> Đăng Ký</a></li>
                     <li class="nav-item"><a href="index.php?r=site/login" class="nav-link"></i> Đăng Nhập</a></li>
                 <?php else: ?>
-                    <li class="nav-item"><a href="index.php?r=user/update" class="nav-link"></i> User</a></li>
                     <?php if(Yii::$app->user->identity->username == 'Admin'): ?>
                         <li class="nav-item"><a href="/cafe/backend/web" class="nav-link"><i class="glyphicon glyphicon-edit"></i> Quản lý Admin</a></li>
                     <?php endif; ?>
-                    <li class="nav-item"><a href="index.php?r=site/logout" class="nav-link">Exit(<?=Yii::$app->user->identity->username?>)</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link"> <?=Yii::$app->user->identity->username?></a></li>
+                    <li class="nav-item"><a href="index.php?r=site/logout" class="nav-link">Exit</a></li>
                 <?php endif; ?>
             </ul>
         </div>
@@ -93,110 +78,89 @@ AppAsset::register($this);
 </nav>
 <!-- END nav -->
 
+
+
 <?= Alert::widget() ?>
 <?php echo $content; ?>
 
-<div class="full-footer">
-    <div class="container-full">
-        <div class="container info">
-            <div class="row">
-                <div class="col-md-4 addres">
-                    <img src="images/footer-logo.png" alt="logo">
-                    <h6 style="font-size: 20px;">BOOK STORE OLD</h6>
-                    <p>
-                        Đại Học Khoa Học Tự Nhiên, Đại Học Quốc Gia Hà Nội
-                    </p>
-                    <p><a href="#" style="color: white;"><i class="fas fa-phone"></i>
-                            0123 456 789/0123 456 788
-                    </p>
-                </div>
-                <div class="col-md-2 account">
-                    <h4><i class="fas fa-user"></i> My Account</h4>
-                    <ul>
-                        <li style="margin-top:15px;"><a href="#"><i class="fas fa-shopping-cart"></i> Giỏ hàng</a></li>
-                        <li style="margin-top:15px;"><a href="#"><i class="fas fa-shopping-bag"></i> Đặt hàng</a></li>
-                        <li style="margin-top:15px;"><a href="#"><i class="fas fa-user-circle"></i> Thông tin cá nhân</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-2 assistance">
-                    <h4><i class="fas fa-star"></i> Tiêu chí</h4>
-                    <ul>
-                        <li><a href="#"><i class="fas fa-heart"></i> ĐỘI NGŨ NHÂN VIÊN NHIỆT TÌNH</a></li>
-                        <li><a href="#"><i class="fas fa-gem"></i> KHÔNG GIAN SANG TRỌNG</a></li>
-                        <li><a href="#"><i class="fas fa-users"></i> GIAO LƯU VỚI MỌI NGƯỜI</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-4 about">
-                    <h4>Về chúng tôi</h4>
-                    <p>
-                        Với đội ngũ nhân viên nhiệt tình cộng với chất lượng hảo hạn từ sản phẩm tại đây, hi vọng quý vị có những giây phút tuyệt với bên gia đình, bạn bè và ngưòi thân
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--end-addres-->
+
+<footer class="ftco-footer ftco-section img">
+    <div class="overlay"></div>
     <div class="container">
-        <div class="row bottom-strip">
-            <div class="col-md-6 rights">
-                <p>
-                    Thực Tập HOASONINFOTECH
-                </p>
+        <div class="row mb-5">
+            <div class="col-lg-3 col-md-6 mb-5 mb-md-5">
+                <div class="ftco-footer-widget mb-4">
+                    <h2 class="ftco-heading-2">About Us</h2>
+                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                    <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
+                        <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+                        <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+                        <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="col-md-6 social">
-                <ul>
-                    <li><a href="#"><i class="fab fa-dribbble"></i></a></li>
-                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                    <li><a href="#"><i class="fas fa-asterisk"></i></a></li>
-                    <li><a href="#"><i class="fab fa-facebook-square"></i></a></li>
-                </ul>
+            <div class="col-lg-4 col-md-6 mb-5 mb-md-5">
+                <div class="ftco-footer-widget mb-4">
+                    <h2 class="ftco-heading-2">Recent Blog</h2>
+                    <div class="block-21 mb-4 d-flex">
+                        <a class="blog-img mr-4" style="background-image: url(images/image_1.jpg);"></a>
+                        <div class="text">
+                            <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about</a></h3>
+                            <div class="meta">
+                                <div><a href="#"><span class="icon-calendar"></span> Sept 15, 2018</a></div>
+                                <div><a href="#"><span class="icon-person"></span> Admin</a></div>
+                                <div><a href="#"><span class="icon-chat"></span> 19</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="block-21 mb-4 d-flex">
+                        <a class="blog-img mr-4" style="background-image: url(images/image_2.jpg);"></a>
+                        <div class="text">
+                            <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about</a></h3>
+                            <div class="meta">
+                                <div><a href="#"><span class="icon-calendar"></span> Sept 15, 2018</a></div>
+                                <div><a href="#"><span class="icon-person"></span> Admin</a></div>
+                                <div><a href="#"><span class="icon-chat"></span> 19</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-6 mb-5 mb-md-5">
+                <div class="ftco-footer-widget mb-4 ml-md-4">
+                    <h2 class="ftco-heading-2">Services</h2>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="py-2 d-block">Cooked</a></li>
+                        <li><a href="#" class="py-2 d-block">Deliver</a></li>
+                        <li><a href="#" class="py-2 d-block">Quality Foods</a></li>
+                        <li><a href="#" class="py-2 d-block">Mixed</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-5 mb-md-5">
+                <div class="ftco-footer-widget mb-4">
+                    <h2 class="ftco-heading-2">Have a Questions?</h2>
+                    <div class="block-23 mb-3">
+                        <ul>
+                            <li><span class="icon icon-map-marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
+                            <li><a href="#"><span class="icon icon-phone"></span><span class="text">+2 392 3929 210</span></a></li>
+                            <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@yourdomain.com</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+
+                <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
             </div>
         </div>
     </div>
-</div>
+</footer>
 
-<!--end-footer-->
-<script type="text/javascript" src="js/jquery.min.js"></script>
-<script type="text/javascript" src="js/bootstrap.js"></script>
-<script src="js/modernizr.js"></script>
-<script type="text/javascript" src="js/jquery.flexslider-min.js"></script>
-<script type="text/javascript">
-    // jQuery
-    (function($) {
-        "use strict";
-        $(document).ready(function() {
-            // Main Slider
-            $('.main-flexslider').flexslider({
-                directionNav: true,
-                controlNav: false,
-                animation: "fade",
-                slideshowSpeed: 3000,
-                prevText: "",
-                nextText: "",
-            });
-        });
-    })(jQuery);
-</script>
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const searchCategoryInput = document.getElementById("searchCategoryInput");
-        const categoryItems = document.querySelectorAll(".dropdown-menu a");
-
-        searchCategoryInput.addEventListener("input", function() {
-            const searchTerm = searchCategoryInput.value.trim().toLowerCase();
-
-            categoryItems.forEach(function(item) {
-                const categoryName = item.textContent.toLowerCase();
-
-                if (categoryName.includes(searchTerm)) {
-                    item.style.display = "block";
-                } else {
-                    item.style.display = "none";
-                }
-            });
-        });
-    });
-</script>
 
 <!-- loader -->
 <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
@@ -204,7 +168,7 @@ AppAsset::register($this);
 
 <script src="asset/js/jquery.min.js"></script>
 <script src="asset/js/jquery-migrate-3.0.1.min.js"></script>
-<script src="asset/s/popper.min.js"></script>
+<script src="asset/js/popper.min.js"></script>
 <script src="asset/js/bootstrap.min.js"></script>
 <script src="asset/js/jquery.easing.1.3.js"></script>
 <script src="asset/js/jquery.waypoints.min.js"></script>
