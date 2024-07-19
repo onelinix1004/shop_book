@@ -22,6 +22,8 @@
             background-color: #f9f9f9; /* Background màu xám nhạt */
             padding: 20px;
             border-radius: 10px;
+            margin-left: 350px;
+            margin-top: 50px;
         }
 
         /* Để định dạng các icon, sử dụng lớp icon-wrapper */
@@ -33,7 +35,7 @@
             position: absolute;
             top: 12px;
             left: 15px;
-            color: black; /* Màu icon xám nhạt */
+            color: bla; /* Màu icon xám nhạt */
         }
     </style>
 </head>
@@ -52,7 +54,7 @@
             use yii\bootstrap\ActiveForm;?>
 
             <!-- Định dạng cho trường "username" -->
-            <div class="icon-wrapper">
+            <div class="icon-wrapper" style="color:black;">
                 <i class="fas fa-user"></i> <!-- Icon user -->
                 <?= $form->field($model, 'username')->textInput(['autofocus' => true])->label(false) ?>
             </div>

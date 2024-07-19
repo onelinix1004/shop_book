@@ -1,4 +1,5 @@
 <?php
+
 use yii\helpers\Html;
 use yii\bootstrap5\ActiveForm;
 use yii\bootstrap\Nav;
@@ -7,11 +8,15 @@ use yii\widgets\Breadcrumbs;
 use frontend\assets\AppAsset;
 use common\widgets\Alert;
 use backend\models\Category;
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-MJ/56pBrhygBp+g9tOxTE4Z1BF7kfyuHXsKo+va4sfMq4P6IKdZDzNNhYHKrkBLclD9Sx8E86QZko2NCl1prA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Category</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+          integrity="sha512-MJ/56pBrhygBp+g9tOxTE4Z1BF7kfyuHXsKo+va4sfMq4P6IKdZDzNNhYHKrkBLclD9Sx8E86QZko2NCl1prA=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Great+Vibes" rel="stylesheet">
@@ -63,11 +68,10 @@ use backend\models\Category;
     </style>
 
 
-
 </head>
 <!--end-navbar-->
 
-<section style="height: 100px; background-image: url(asset/images/pexels-ivo-rainha-527110-1290141.jpg);" >
+<section style="height: 100px; background-image: url(asset/images/pexels-ivo-rainha-527110-1290141.jpg);">
 </section>
 
 <!-- shop-page -->
@@ -82,12 +86,11 @@ use backend\models\Category;
     </div>
 
 
-
     <div class="row content">
         <div class="col-md-9 shop-section">
             <div class="row">
                 <div class="col-md-12 latest">
-                    <h4 class="pull-left"><?php echo 'Có tổng cộng '.$count.' sách'; ?></h4>
+                    <h4 class="pull-left"><?php echo 'Có tổng cộng ' . $count . ' sách'; ?></h4>
                     <ul class="pagination-lít pull-right">
 
                     </ul>
@@ -96,21 +99,22 @@ use backend\models\Category;
             <br>
             <!--articles-->
             <div class="row articles">
-                <?php foreach($products as $product):?>
+                <?php foreach ($products as $product): ?>
                     <div class="col-md-4 col-sm-6">
-                        <a href="index.php?r=site/view&id=<?=$product->id?>">
+                        <a href="index.php?r=site/view&id=<?= $product->id ?>">
 
                             <img src="<?= $product->image ?>" alt="img" style="width: 262px;height: 290px">
                             <div class="text">
                         <span>
-                        <?=$product->name?> </span>
+                        <?= $product->name ?> </span>
                                 <p>
-                                    <?php $s= number_format($product->price); echo 'Giá : '.$s.' VNĐ'; ?>
+                                    <?php $s = number_format($product->price);
+                                    echo 'Giá : ' . $s . ' VNĐ'; ?>
                                 </p>
                             </div>
                         </a>
                     </div>
-                <?php endforeach;?>
+                <?php endforeach; ?>
             </div>
         </div>
         <!-- Add this search input above the articles section -->
@@ -122,11 +126,13 @@ use backend\models\Category;
                 <div class="shop-widget">
                     <h4>Categories</h4>
                     <ul class="category-shop-list">
-                        <?php $category = backend\models\Category::find()->all();?>
+                        <?php $category = backend\models\Category::find()->all(); ?>
                         <?php foreach ($category as $item): ?>
-                            <?php $count = backend\models\Product::find()->where(['category_id'=>$item->id])->count();?>
+                            <?php $count = backend\models\Product::find()->where(['category_id' => $item->id])->count(); ?>
                             <li>
-                                <a class="accordion-link" href="index.php?r=site/category&id=<?=$item->id?>"><?=$item->name?> <span>(<?=$count?>)</span></a>
+                                <a class="accordion-link"
+                                   href="index.php?r=site/category&id=<?= $item->id ?>"><?= $item->name ?>
+                                    <span>(<?= $count ?>)</span></a>
                                 <ul class="accordion-list-content">
                                 </ul>
                             </li>
@@ -140,15 +146,71 @@ use backend\models\Category;
         </div>
     </div>
 </div>
+<section class="ftco-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 latest">
+                <h4 class="pull-left"><?php echo 'Có tổng cộng ' . $count . ' sách'; ?></h4>
+                <ul class="pagination-lít pull-right">
+
+                </ul>
+            </div>
+            <div class="col-xl-8 ftco-animate">
+                <?php foreach ($products as $product): ?>
+                    <div class="col-md-4 col-sm-6">
+                        <a href="index.php?r=site/view&id=<?= $product->id ?>">
+
+                            <img src="<?= $product->image ?>" alt="img" style="width: 262px;height: 290px">
+                            <div class="text">
+                        <span>
+                        <?= $product->name ?> </span>
+                                <p>
+                                    <?php $s = number_format($product->price);
+                                    echo 'Giá : ' . $s . ' VNĐ'; ?>
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                <?php endforeach; ?>
+            </div> <!-- .col-md-8 -->
+
+
+            <div class="col-xl-4 sidebar ftco-animate">
+                <div class="sidebar-box">
+                    <form action="#" class="search-form">
+                        <div class="form-group">
+                            <div class="icon">
+                                <span class="icon-search"></span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Search...">
+                        </div>
+                    </form>
+                </div>
+                <div class="sidebar-box ftco-animate">
+                    <div class="categories">
+                        <h3>Categories</h3>
+                        <?php $category = backend\models\Category::find()->all(); ?>
+                        <?php foreach ($category as $item): ?>
+                            <?php $count = backend\models\Product::find()->where(['category_id' => $item->id])->count(); ?>
+                            <li><a href="index.php?r=site/category&id=<?= $item->id ?>"><?= $item->name ?> <span>(<?= $count ?>)</span></a></li>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section> <!-- .section -->
+
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
+    document.addEventListener("DOMContentLoaded", function () {
         const searchInput = document.getElementById("searchInput");
         const articles = document.querySelectorAll(".articles .col-md-4");
 
-        searchInput.addEventListener("input", function() {
+        searchInput.addEventListener("input", function () {
             const searchTerm = searchInput.value.trim().toLowerCase();
 
-            articles.forEach(function(article) {
+            articles.forEach(function (article) {
                 const name = article.querySelector(".text span").innerText.toLowerCase();
 
                 if (name.includes(searchTerm)) {
