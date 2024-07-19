@@ -69,7 +69,7 @@ use backend\models\Category;
                     <?php if(Yii::$app->user->identity->username == 'Admin'): ?>
                         <li class="nav-item"><a href="/cafe/backend/web" class="nav-link"><i class="glyphicon glyphicon-edit"></i> Quản lý Admin</a></li>
                     <?php endif; ?>
-                    <li class="nav-item"><a href="#" class="nav-link"> <?=Yii::$app->user->identity->username?></a></li>
+                    <li class="nav-item"><a href="index.php?r=user/update" class="nav-link"> <?=Yii::$app->user->identity->username?></a></li>
                     <li class="nav-item"><a href="index.php?r=site/logout" class="nav-link">Exit</a></li>
                 <?php endif; ?>
             </ul>

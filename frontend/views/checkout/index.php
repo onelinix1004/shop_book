@@ -18,22 +18,22 @@ use yii\bootstrap5\ActiveForm;
 $model->amount = $cost;
 ?>
 <!--end-navbar-->
-<div class="page-title">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-10 produti">
-                <h4><i class="fa fa-shopping-cart"></i> Đặt hàng</h4>
-            </div>
-            <div class="col-md-2 cart">
-                <h4><a href="index.php?r=cart"><i class="fa fa-shopping-basket"></i> Giỏ hàng</a></h4>
-                <ul>
-                    <li><a href="index.php"><i class="fa fa-home"></i> Trang chủ /</a></li>
-                    <li><a href="index.php"><i class="fa fa-shopping-cart"></i> Đặt hàng</a></li>
-                </ul>
+<section class="home-slider owl-carousel">
+
+    <div class="slider-item" style="background-image: url(asset/images/pexels-ivo-rainha-527110-1290141.jpg);" data-stellar-background-ratio="0.5">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row slider-text justify-content-center align-items-center">
+
+                <div class="col-md-7 col-sm-12 text-center ftco-animate">
+                    <h1 class="mb-3 mt-5 bread">Check Out</h1>
+                    <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home</a></span> <span>Check Out</span></p>
+                </div>
+
             </div>
         </div>
     </div>
-</div>
+</section>
 <!-- shop-page -->
 <div class="container checking-area">
     <div class="row">
@@ -68,13 +68,6 @@ $model->amount = $cost;
                                     <?= $form->field($model, 'amount')->hiddenInput()->label(false); ?>
 
 
-                                    <button type="submit" class="btn btn-danger" style="margin-left: 180px"><i
-                                                class="fa fa-check"></i> ĐẶT HÀNG
-                                    </button>
-
-
-                                    <?php \yii\bootstrap5\ActiveForm::end(); ?>
-
                                 </div>
 
 
@@ -88,6 +81,12 @@ $model->amount = $cost;
                                                 class="fa fa-check-square"></i> 2. Xác nhận đơn hàng</a>
                                 </h4>
                             </div>
+                            <button type="submit" class="btn btn-danger" style="margin-left: 180px"><i
+                                        class="fa fa-check"></i> ĐẶT HÀNG
+                            </button>
+
+
+                            <?php \yii\bootstrap5\ActiveForm::end(); ?>
                             <div class="row">
                                 <div class="col-md-12 cart-area">
                                     <div class="sixteen columns cart-section oflow">
@@ -124,47 +123,6 @@ $model->amount = $cost;
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3 shop-sidebar">
-            <div class="sidebar-widgets">
-
-                <div class="shop-widget">
-                    <h4><i class="fa fa-list"></i> Categories</h4>
-                    <ul class="category-shop-list">
-                        <?php $category = backend\models\Category::find()->all(); ?>
-                        <?php foreach ($category as $item): ?>
-                            <?php $count = backend\models\Product::find()->where(['category_id' => $item->id])->count(); ?>
-                            <li>
-                                <a class="accordion-link"
-                                   href="index.php?r=site/category&id=<?= $item->id ?>"><?= $item->name ?>
-                                    <span>(<?= $count ?>)</span></a>
-                                <ul class="accordion-list-content">
-                                </ul>
-                            </li>
-                        <?php endforeach; ?>
-
-
-                    </ul>
-                </div>
-                <div class="shop-widget">
-                    <h4><i class="fa fa-heart"></i>Được yêu thích</h4>
-                    <?php $product = backend\models\Product::find()->limit(4)->all(); ?>
-                    <ul class="popular-product">
-                        <?php foreach ($product as $item): ?>
-                            <li>
-                                <!--<img src="/cafe/backend/web/<?= $item->image ?>" alt="img" style="width: 50px;height: 50px">-->
-                                <img src="<?=  $item->image ?>" alt="img"
-                                     style="width: 50px;height: 50px">
-                                <div>
-                                    <h6><a href="#"><?= $item->name ?></a></h6>
-                                    <span><?php $s = number_format($item->price);
-                                        echo $s . ' VNĐ'; ?></span>
-                                </div>
-                            </li>
-                        <?php endforeach; ?>
-                    </ul>
                 </div>
             </div>
         </div>

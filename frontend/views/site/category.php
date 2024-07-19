@@ -16,6 +16,27 @@ use backend\models\Category;
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Great+Vibes" rel="stylesheet">
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flaticon@latest/css/flaticon.css">
+
+
+    <link rel="stylesheet" href="asset/css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="asset/css//animate.css">
+
+    <link rel="stylesheet" href="asset/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="asset/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="asset/css/magnific-popup.css">
+
+    <link rel="stylesheet" href="asset/css/aos.css">
+
+    <link rel="stylesheet" href="asset/css/ionicons.min.css">
+
+    <link rel="stylesheet" href="asset/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="css/jquery.timepicker.css">
+
+
+    <link rel="stylesheet" href="asset/css/flaticon.css">
+    <link rel="stylesheet" href="asset/css/icomon.css">
+    <link rel="stylesheet" href="asset/css/style.css">
     <style>
         /* CSS for centering the search bar */
         .search-bar-container {
