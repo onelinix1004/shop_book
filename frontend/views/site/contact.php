@@ -51,9 +51,9 @@ use backend\models\Category;
             </a>
             <div class="collapse navbar-collapse" id="navbarContent">
                 <ul class="navbar-nav mx-auto">
-                    <li class="nav-item active"><a href="index.php" class="nav-link"><i class="fas fa-home"></i> Trang chủ</a></li>
+                    <li class="nav-item active"><a href="index.php" class="nav-link"><i class="fas fa-home"></i> Home</a></li>
                     <li class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"><i class="fas fa-book"></i> Loại Sách</a>
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"><i class="fas fa-book"></i> Category</a>
                         <div class="dropdown-menu">
                             <input type="text" id="searchCategoryInput" class="dropdown-item" placeholder="Tìm kiếm theo loại sách...">
                             <?php $categories = Category::find()->all(); ?>
@@ -62,15 +62,14 @@ use backend\models\Category;
                             <?php endforeach; ?>
                         </div>
                     </li>
-                    <li class="nav-item"><a href="index.php?r=cart" class="nav-link"><i class="fas fa-shopping-cart"></i> Giỏ hàng</a></li>
-                    <li class="nav-item"><a href="index.php?r=site/about" class="nav-link"><i class="fas fa-info-circle"></i> Giới thiệu</a></li>
-                    <li class="nav-item"><a href="index.php?r=site/contact" class="nav-link"><i class="fas fa-envelope"></i> Liên hệ</a></li>
+                    <li class="nav-item"><a href="index.php?r=cart" class="nav-link"><i class="fas fa-shopping-cart"></i> Cart</a></li>
+                    <li class="nav-item"><a href="index.php?r=site/about" class="nav-link"><i class="fas fa-info-circle"></i> About</a></li>
+                    <li class="nav-item"><a href="index.php?r=site/contact" class="nav-link"><i class="fas fa-envelope"></i> Contact</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 </div>
-
 <section class="home-slider owl-carousel">
 
     <div class="slider-item" style="background-image: url(asset/images/pexels-ivo-rainha-527110-1290141.jpg);" data-stellar-background-ratio="0.5">
@@ -80,7 +79,7 @@ use backend\models\Category;
 
                 <div class="col-md-7 col-sm-12 text-center ftco-animate">
                     <h1 class="mb-3 mt-5 bread">About Us</h1>
-                    <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home</a></span> <span>About</span></p>
+                    <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home</a></span> <span>Contact</span></p>
                 </div>
 
             </div>
