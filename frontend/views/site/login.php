@@ -35,7 +35,7 @@
             position: absolute;
             top: 12px;
             left: 15px;
-            color: bla; /* Màu icon xám nhạt */
+            color: grey; /* Màu icon xám nhạt */
         }
     </style>
 </head>

@@ -104,23 +104,29 @@ use backend\models\Category;
                 </ul>
             </div>
             <div class="col-xl-8 ftco-animate">
+                <?php $counter = 0; ?>
                 <?php foreach ($products as $product): ?>
+                    <?php if ($counter % 3 == 0): ?>
+                        <div class="row">
+                    <?php endif; ?>
                     <div class="col-md-4 col-sm-6">
                         <a href="index.php?r=site/view&id=<?= $product->id ?>">
-
-                            <img src="<?= $product->image ?>" alt="img" style="width: 200px;height: 290px;">
+                            <img src="<?= $product->image ?>" alt="img" style="width: 200px; height: 290px;">
                             <div class="text">
-                        <span>
-                        <?= $product->name ?> </span>
-                                <p>
-                                    <?php $s = number_format($product->price);
-                                    echo 'Giá : ' . $s . ' VNĐ'; ?>
-                                </p>
+                                <span><?= $product->name ?></span>
+                                <p><?php $s = number_format($product->price); echo 'Giá : ' . $s . ' VNĐ'; ?></p>
                             </div>
                         </a>
                     </div>
+                    <?php $counter++; ?>
+                    <?php if ($counter % 3 == 0): ?>
+                        </div> <!-- .row -->
+                    <?php endif; ?>
                 <?php endforeach; ?>
-            </div> <!-- .col-md-8 -->
+                <?php if ($counter % 3 != 0): ?>
+            </div> <!-- .row (closing for the last row if not complete) -->
+            <?php endif; ?>
+        </div> <!-- .col-md-8 -->
 
 
             <div class="col-xl-4 sidebar ftco-animate">

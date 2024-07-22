@@ -47,7 +47,7 @@ use backend\models\Category;
         .search-bar-container {
             display: flex;
             justify-content: left;
-            align-items: left;
+            align-items: flex-end;
             margin: 20px auto;
             width: 100%;
         }
@@ -73,14 +73,16 @@ use backend\models\Category;
 
 <section class="home-slider owl-carousel">
 
-    <div class="slider-item" style="background-image: url(asset/images/pexels-ivo-rainha-527110-1290141.jpg);" data-stellar-background-ratio="0.5">
+    <div class="slider-item" style="background-image: url(asset/images/pexels-ivo-rainha-527110-1290141.jpg);"
+         data-stellar-background-ratio="0.5">
         <div class="overlay"></div>
         <div class="container">
             <div class="row slider-text justify-content-center align-items-center">
 
                 <div class="col-md-7 col-sm-12 text-center ftco-animate">
                     <h1 class="mb-3 mt-5 bread">Novels</h1>
-                    <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home</a></span> <span>Category</span></p>
+                    <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home</a></span> <span>Category</span>
+                    </p>
                 </div>
 
             </div>
@@ -105,26 +107,33 @@ use backend\models\Category;
                 </ul>
             </div>
             <div class="col-xl-8 ftco-animate">
+                <?php $counter = 0; ?>
                 <?php foreach ($products as $product): ?>
+                    <?php if ($counter % 3 == 0): ?>
+                        <div class="row">
+                    <?php endif; ?>
                     <div class="col-md-4 col-sm-6">
                         <a href="index.php?r=site/view&id=<?= $product->id ?>">
-
-                            <img src="<?= $product->image ?>" alt="img" style="width: 200px;height: 290px;">
+                            <img src="<?= $product->image ?>" alt="img" style="width: 200px; height: 290px;">
                             <div class="text">
-                        <span>
-                        <?= $product->name ?> </span>
-                                <p>
-                                    <?php $s = number_format($product->price);
-                                    echo 'Giá : ' . $s . ' VNĐ'; ?>
-                                </p>
+                                <span><?= $product->name ?></span>
+                                <p><?php $s = number_format($product->price); echo 'Giá : ' . $s . ' VNĐ'; ?></p>
                             </div>
                         </a>
                     </div>
+                    <?php $counter++; ?>
+                    <?php if ($counter % 3 == 0): ?>
+                        </div> <!-- .row -->
+                    <?php endif; ?>
                 <?php endforeach; ?>
-            </div> <!-- .col-md-8 -->
+                <?php if ($counter % 3 != 0): ?>
+            </div> <!-- .row (closing for the last row if not complete) -->
+            <?php endif; ?>
+        </div> <!-- .col-md-8 -->
 
 
-            <div class="col-xl-4 sidebar ftco-animate">
+
+        <div class="col-xl-4 sidebar ftco-animate">
                 <div class="sidebar-box">
                     <form action="#" class="search-form">
                         <div class="form-group">
