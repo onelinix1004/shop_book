@@ -218,6 +218,20 @@ class SiteController extends Controller
         ]);
     }
 
+    public function actionProducts()
+    {
+        $products = Product::find()
+            ->limit(20)
+            ->all();
+
+        $count = Product::find()
+            ->count();
+
+        return $this->render("products", [
+            "products" => $products,
+            "count" => $count,
+        ]);
+    }
     /**
      * Logs in a user.
      *

@@ -42,6 +42,8 @@ use backend\models\Category;
     <link rel="stylesheet" href="asset/css/flaticon.css">
     <link rel="stylesheet" href="asset/css/icomon.css">
     <link rel="stylesheet" href="asset/css/style.css">
+
+
     <style>
         /* CSS for centering the search bar */
         .search-bar-container {
@@ -94,12 +96,7 @@ use backend\models\Category;
 <!-- Rest of the code remains the same -->
 <section class="ftco-section" style="padding: 0">
     <div class="container">
-        <div class="col-md-12" style="padding: 0">
-            <div class="search-bar-container">
-                <input type="text" id="searchInput" placeholder="Tìm kiếm theo tên sách...">
-            </div>
-        </div>
-        <div class="row">
+        <div class="row" style="margin-top: 10px">
             <div class="col-md-12 latest">
                 <h4 class="pull-left"><?php echo 'Có tổng cộng ' . $count . ' sách'; ?></h4>
                 <ul class="pagination-lít pull-right">
@@ -140,7 +137,7 @@ use backend\models\Category;
                             <div class="icon">
                                 <span class="icon-search"></span>
                             </div>
-                            <input type="text" class="form-control" placeholder="Search...">
+                            <input type="text" class="form-control" id="searchInput" placeholder="Search...">
                         </div>
                     </form>
                 </div>

@@ -13,7 +13,7 @@ use backend\models\Category;
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Category</title>
+    <title>Books</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
           integrity="sha512-MJ/56pBrhygBp+g9tOxTE4Z1BF7kfyuHXsKo+va4sfMq4P6IKdZDzNNhYHKrkBLclD9Sx8E86QZko2NCl1prA=="
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
@@ -91,12 +91,7 @@ use backend\models\Category;
 <!-- Rest of the code remains the same -->
 <section class="ftco-section" style="padding: 0">
     <div class="container">
-        <div class="col-md-12" style="padding: 0">
-            <div class="search-bar-container">
-                <input type="text" id="searchInput" placeholder="Tìm kiếm theo tên sách...">
-            </div>
-        </div>
-        <div class="row">
+        <div class="row" style="margin-top: 10px">
             <div class="col-md-12 latest">
                 <h4 class="pull-left"><?php echo 'Có tổng cộng ' . $count . ' sách'; ?></h4>
                 <ul class="pagination-lít pull-right">

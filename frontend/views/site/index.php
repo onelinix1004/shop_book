@@ -119,7 +119,7 @@ use backend\models\Category;
                     <span class="subheading">Discover</span>
                     <h2 class="mb-4">Our Book</h2>
                     <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-                    <p><a href="#" class="btn btn-primary btn-outline-primary px-4 py-3">View Full Book</a></p>
+                    <p><a href="index.php?r=site/products" class="btn btn-primary btn-outline-primary px-4 py-3">View Full Book</a></p>
                 </div>
             </div>
             <div class="col-md-6">
@@ -310,7 +310,7 @@ use backend\models\Category;
                     </blockquote>
                     <div class="author d-flex mt-4">
                         <div class="image mr-3 align-self-center">
-                            <img src="images/person_1.jpg" alt="">
+                            <img src="asset/images/person_4.jpg" alt="">
                         </div>
                         <div class="name align-self-center">Louise Kelly <span class="position">Illustrator Designer</span></div>
                     </div>
@@ -323,7 +323,7 @@ use backend\models\Category;
                     </blockquote>
                     <div class="author d-flex mt-4">
                         <div class="image mr-3 align-self-center">
-                            <img src="images/person_2.jpg" alt="">
+                            <img src="asset/images/person_2.jpg" alt="">
                         </div>
                         <div class="name align-self-center">Louise Kelly <span class="position">Illustrator Designer</span></div>
                     </div>
@@ -336,7 +336,7 @@ use backend\models\Category;
                     </blockquote>
                     <div class="author d-flex mt-4">
                         <div class="image mr-3 align-self-center">
-                            <img src="images/person_3.jpg" alt="">
+                            <img src="asset/images/person_3.jpg" alt="">
                         </div>
                         <div class="name align-self-center">Louise Kelly <span class="position">Illustrator Designer</span></div>
                     </div>
@@ -349,7 +349,7 @@ use backend\models\Category;
                     </blockquote>
                     <div class="author d-flex mt-4">
                         <div class="image mr-3 align-self-center">
-                            <img src="images/person_2.jpg" alt="">
+                            <img src="asset/images/person_2.jpg" alt="">
                         </div>
                         <div class="name align-self-center">Louise Kelly <span class="position">Illustrator Designer</span></div>
                     </div>
@@ -362,7 +362,7 @@ use backend\models\Category;
                     </blockquote>
                     <div class="author d-flex mt-4">
                         <div class="image mr-3 align-self-center">
-                            <img src="images/person_3.jpg" alt="">
+                            <img src="asset/images/person_3.jpg" alt="">
                         </div>
                         <div class="name align-self-center">Louise Kelly <span class="position">Illustrator Designer</span></div>
                     </div>

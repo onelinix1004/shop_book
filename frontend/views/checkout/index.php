@@ -20,14 +20,16 @@ $model->amount = $cost;
 <!--end-navbar-->
 <section class="home-slider owl-carousel">
 
-    <div class="slider-item" style="background-image: url(asset/images/pexels-ivo-rainha-527110-1290141.jpg);" data-stellar-background-ratio="0.5">
+    <div class="slider-item" style="background-image: url(asset/images/pexels-ivo-rainha-527110-1290141.jpg);"
+         data-stellar-background-ratio="0.5">
         <div class="overlay"></div>
         <div class="container">
             <div class="row slider-text justify-content-center align-items-center">
 
                 <div class="col-md-7 col-sm-12 text-center ftco-animate">
                     <h1 class="mb-3 mt-5 bread">Check Out</h1>
-                    <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home</a></span> <span>Check Out</span></p>
+                    <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home</a></span>
+                        <span>Check Out</span></p>
                 </div>
 
             </div>
@@ -49,29 +51,27 @@ $model->amount = $cost;
                                                 class="fa fa-info-circle"></i> 1. Thông tin đặt hàng</a>
                                 </h4>
                             </div>
-                            <div id="collapseTwo" class="panel-collapse collapse in panel-body">
 
-                                <div class="accordion-list-content" style="overflow: hidden; display: block;">
-                                    <?php $form = \yii\bootstrap5\ActiveForm::begin(['layout' => 'horizontal']); ?>
-
-
-                                    <?= $form->field($model, 'name')->textInput(['class' => 'form-control']) ?>
+                            <div class="accordion-list-content" style="overflow: hidden; display: block;">
+                                <?php $form = \yii\bootstrap5\ActiveForm::begin(['layout' => 'horizontal']); ?>
 
 
-                                    <?= $form->field($model, 'phone')->textInput(['class' => 'form-control']) ?>
+                                <?= $form->field($model, 'name')->textInput(['class' => 'form-control']) ?>
 
 
-                                    <?= $form->field($model, 'address')->textInput(['class' => 'form-control']) ?>
+                                <?= $form->field($model, 'phone')->textInput(['class' => 'form-control']) ?>
 
 
-                                    <?= $form->field($model, 'note')->textarea(); ?>
-                                    <?= $form->field($model, 'amount')->hiddenInput()->label(false); ?>
+                                <?= $form->field($model, 'address')->textInput(['class' => 'form-control']) ?>
 
 
-                                </div>
+                                <?= $form->field($model, 'note')->textarea(); ?>
+                                <?= $form->field($model, 'amount')->hiddenInput()->label(false); ?>
 
 
                             </div>
+
+
                         </div>
 
                         <div class="panel panel-default">

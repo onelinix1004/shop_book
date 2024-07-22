@@ -207,7 +207,6 @@ ul.depth li:before {
 /*-------------------------------------------------*/
 /* = Contact/*-------------------------------------------------*/
 .page-banner.contact-banner {
-  background:url('../upload/banner3.jpg');
 }
 .map {
   height:440px;
@@ -886,11 +885,7 @@ i:hover {
   margin-left: 0;
 }
 /********************************** Promo Box ********************************/
-.prize {
-  background:url(../images/promo-bg.jpg) no-repeat center;
-  width:100%!important;
-  margin-top:20px;
-}
+
 .prize h1 {
   text-align:center;
   font-size:20px;

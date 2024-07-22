@@ -1,3 +1,5 @@
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 <div class="content">
     <div class="row">
         <div class="col-lg-3 col-md-6 col-sm-6">
@@ -110,42 +112,31 @@
             <div class="card ">
                 <div class="card-header ">
                     <h5 class="card-title">Users Behavior</h5>
-                    <p class="card-category">24 Hours performance</p>
                 </div>
                 <div class="card-body ">
-                    <canvas id=chartHours width="400" height="100"></canvas>
+                    <canvas id=myChart width="400" height="100"></canvas>
                 </div>
                 <div class="card-footer ">
-                    <hr>
-                    <div class="stats">
-                        <i class="fa fa-history"></i> Updated 3 minutes ago
-                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-4">
+
+
+    <div class="row" >
+        <div class="col-md-3">
             <div class="card ">
                 <div class="card-header ">
                     <h5 class="card-title">Email Statistics</h5>
-                    <p class="card-category">Last Campaign Performance</p>
                 </div>
                 <div class="card-body ">
-                    <canvas id="chartEmail"></canvas>
+                    <canvas id="myPieChart" width="200" height="200"></canvas>
                 </div>
                 <div class="card-footer ">
-                    <div class="legend">
-                        <i class="fa fa-circle text-primary"></i> Opened
-                        <i class="fa fa-circle text-warning"></i> Read
-                        <i class="fa fa-circle text-danger"></i> Deleted
-                        <i class="fa fa-circle text-gray"></i> Unopened
-                    </div>
-                    <hr>
                 </div>
             </div>
         </div>
-        <div class="col-md-8">
+        <div class="col-md-9">
             <div class="card card-chart">
                 <div class="card-header">
                     <h5 class="card-title">NASDAQ: AAPL</h5>
@@ -165,6 +156,66 @@
             </div>
         </div>
     </div>
+
+    <script>
+        // Dữ liệu đồ thị hình chữ nhật
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: <?php echo json_encode($labels); ?>,
+                datasets: [{
+                    label: 'Doanh thu',
+                    data: <?php echo json_encode($data); ?>,
+                    pointStyle: 'circle',
+                    pointRadius: 10,
+                    pointHoverRadius: 15,
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                animations: {
+                    radius: {
+                        duration: 400,
+                        easing: 'linear',
+                        loop: (context) => context.active
+                    }
+                },
+            }
+        });
+
+        // Dữ liệu đồ thị hình tròn
+        var ctx2 = document.getElementById('myPieChart').getContext('2d');
+        var myPieChart = new Chart(ctx2, {
+            type: 'pie',
+            data: {
+                labels: <?php echo json_encode($categoryLabels); ?>,
+                datasets: [{
+                    label: 'Doanh thu',
+                    data: <?php echo json_encode(array_column($categoryData, 'total')); ?>,
+                    backgroundColor: <?php echo json_encode($bgColors); ?>,
+                }]
+            },
+            options: {
+                responsive: true,
+                legend: {
+                    position: 'bottom',
+                },
+                title: {
+                    display: true,
+                    text: 'Biểu đồ doanh thu theo danh mục sản phẩm',
+                },
+                animation: {
+                    animateScale: true,
+                    animateRotate: true,
+                },
+            }
+        });
+    </script>
+
 
     <div class="row">
         <div class="col-md-12">
