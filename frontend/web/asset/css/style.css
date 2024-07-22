@@ -8497,9 +8497,6 @@ textarea.form-control {
 .about-author .desc h3 {
   font-size: 24px; }
 
-.ftco-section {
-  padding: 7em 0;
-  position: relative; }
   @media (max-width: 767.98px) {
     .ftco-section {
       padding: 6em 0; } }
@@ -9161,7 +9158,6 @@ textarea.form-control {
 
 .sidebar-box {
   margin-bottom: 30px;
-  padding: 25px;
   font-size: 15px;
   width: 100%;
   float: left; }

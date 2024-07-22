@@ -79,10 +79,9 @@ use backend\models\Category;
             <div class="row slider-text justify-content-center align-items-center">
 
                 <div class="col-md-7 col-sm-12 text-center ftco-animate">
-                    <h1 class="mb-3 mt-5 bread">Novels</h1>
-                    <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home</a></span> <span>Category</span></p>
+                    <h1 class="mb-3 mt-5 bread">Book</h1>
+                    <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home</a></span> <span>Book</span></p>
                 </div>
-
             </div>
         </div>
     </div>
