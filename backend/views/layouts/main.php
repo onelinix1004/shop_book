@@ -25,8 +25,11 @@ AppAsset::register($this);
     </title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
     <!--     Fonts and icons     -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+
+
     <!-- CSS Files -->
     <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
     <link href="../assets/css/paper-dashboard.css?v=2.0.1" rel="stylesheet" />
@@ -58,13 +61,14 @@ AppAsset::register($this);
                 </li>
                 <li>
                     <a href="index.php?r=product">
-                        <i class="ti-list"></i>
+                        <i class="fa-solid fa-book"></i>
+
                         <p>Product</p>
                     </a>
                 </li>
                 <li>
                     <a href="index.php?r=category ">
-                        <i class="ti-list"></i>
+                        <i class="fa-solid fa-list"></i>
                         <p>Category</p>
                     </a>
                 </li>
@@ -78,20 +82,20 @@ AppAsset::register($this);
                 </li>
                 <li>
                     <a href="index.php?r=orders">
-                        <i class="ti-pencil-alt2"></i>
+                        <i class="fa-solid fa-cart-shopping"></i>
                         <p>Quản lý đơn hàng</p>
                     </a>
 
                 <li>
                 <li>
                     <a href="index.php?r=orders-item">
-                        <i class="ti-user"></i>
+                        <i class="fa-solid fa-users"></i>
                         <p>Quản lý Orders</p>
                     </a>
                 </li>
                 <li>
                     <a href="index.php?r=contact">
-                        <i class="ti-pencil-alt2"></i>
+                        <i class="fa-solid fa-pencil"></i>
                         <p>Quản lý liên hệ</p>
                     </a>
                 </li>

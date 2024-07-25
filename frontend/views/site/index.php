@@ -14,7 +14,7 @@ use backend\models\Category;
         .menu-entry .img {
             display: block;
             width: 100%;
-            height: 250px; /* Set a fixed height */
+            height: 350px; /* Set a fixed height */
             background-size: cover;
             background-position: center center;
         }
@@ -139,6 +139,7 @@ use backend\models\Category;
                 <div class="media d-block text-center block-6 services">
                     <div class="icon d-flex justify-content-center align-items-center mb-5">
                         <span class="flaticon-coffee-bean"></span></div>
+
                     <div class="media-body">
                         <h3 class="heading">Quality Book</h3>
                         <p>Even the all-powerful Pointing has no control about the blind texts it is an almost

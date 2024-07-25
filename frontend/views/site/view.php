@@ -2,7 +2,7 @@
 
 use yii\helpers\Html;
 use yii\helpers\Url;
-use yii\widgets\ActiveForm;
+use yii\bootstrap5\ActiveForm;
 use backend\models\User;
 use backend\models\Comment;
 use frontend\models\CommentForm;
@@ -13,6 +13,34 @@ use frontend\models\CommentForm;
 
 ?>
 <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        .menu-entry .img {
+            display: block;
+            width: 100%;
+            height: 350px; /* Set a fixed height */
+            background-size: cover;
+            background-position: center center;
+        }
+
+        .product-name {
+            height: 50px; /* Set a fixed height for the product name */
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+
+        .product-description {
+            height: 60px; /* Set a fixed height for the product description */
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+
+        .price {
+            margin-bottom: 10px;
+        }
+
+    </style>
 
 </head>
 <section class="home-slider owl-carousel">
@@ -70,7 +98,12 @@ use frontend\models\CommentForm;
         </div>
     </div>
 </section>
+
+
 <!-- shop-page -->
+<?php $product = backend\models\Product::find()
+    ->limit(4)
+    ->all(); ?>
 <section class="ftco-section">
     <div class="container">
         <div class="row justify-content-center mb-5 pb-3">
@@ -81,51 +114,39 @@ use frontend\models\CommentForm;
                     the blind texts.</p>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-3">
-                <div class="menu-entry">
-                    <a href="#" class="img" style="background-image: url(images/menu-1.jpg);"></a>
-                    <div class="text text-center pt-4">
-                        <h3><a href="#">Coffee Capuccino</a></h3>
-                        <p class="price"><span>$5.90</span></p>
-                        <p><a href="#" class="btn btn-primary btn-outline-primary">Add to Cart</a></p>
-                    </div>
-                </div>
+        <div class="container">
+            <div class="row">
+                <?php
+                $count = 0;
+                foreach ($product
+
+                as $item):
+                if ($count % 4 == 0 && $count != 0): ?>
             </div>
-            <div class="col-md-3">
-                <div class="menu-entry">
-                    <a href="#" class="img" style="background-image: url(images/menu-2.jpg);"></a>
-                    <div class="text text-center pt-4">
-                        <h3><a href="#">Coffee Capuccino</a></h3>
-                        <p>A small river named Duden flows by their place and supplies</p>
-                        <p class="price"><span>$5.90</span></p>
-                        <p><a href="#" class="btn btn-primary btn-outline-primary">Add to Cart</a></p>
+            <div class="row">
+                <?php endif;
+                if ($count == 20) break; // Stop after 20 products (5 rows of 4 products each)
+                $count++;
+                ?>
+                <div class="col-md-3">
+                    <div class="menu-entry">
+                        <a href="index.php?r=site/view&id=<?= $item->id ?>" class="img"
+                           style="background-image: url(<?= $item->image ?>);"></a>
+                        <div class="text text-center pt-4">
+                            <h3 class="product-name"><a href="#"><?= $item->name ?></a></h3>
+                            <p class="product-description">A small river named Duden flows by their place and
+                                supplies</p>
+                            <p class="price"><span><?php $s = number_format($item->price);
+                                    echo 'Giá : ' . $s . ' VNĐ'; ?></span></p>
+                            <p><a href="#" class="btn btn-primary btn-outline-primary">Add to Cart</a></p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-3">
-                <div class="menu-entry">
-                    <a href="#" class="img" style="background-image: url(images/menu-3.jpg);"></a>
-                    <div class="text text-center pt-4">
-                        <h3><a href="#">Coffee Capuccino</a></h3>
-                        <p>A small river named Duden flows by their place and supplies</p>
-                        <p class="price"><span>$5.90</span></p>
-                        <p><a href="#" class="btn btn-primary btn-outline-primary">Add to Cart</a></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="menu-entry">
-                    <a href="#" class="img" style="background-image: url(images/menu-4.jpg);"></a>
-                    <div class="text text-center pt-4">
-                        <h3><a href="#">Coffee Capuccino</a></h3>
-                        <p>A small river named Duden flows by their place and supplies</p>
-                        <p class="price"><span>$5.90</span></p>
-                        <p><a href="#" class="btn btn-primary btn-outline-primary">Add to Cart</a></p>
-                    </div>
-                </div>
+                <?php endforeach; ?>
             </div>
         </div>
+
+    </div>
     </div>
 </section>
 <!--prize-->
