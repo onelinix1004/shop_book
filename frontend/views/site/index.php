@@ -1,4 +1,5 @@
 <?php
+
 use yii\helpers\Html;
 use yii\bootstrap5\Nav;
 use yii\bootstrap5\NavBar;
@@ -8,7 +9,34 @@ use common\widgets\Alert;
 use backend\models\Category;
 
 ?>
+<head>
+    <style>
+        .menu-entry .img {
+            display: block;
+            width: 100%;
+            height: 250px; /* Set a fixed height */
+            background-size: cover;
+            background-position: center center;
+        }
 
+        .product-name {
+            height: 50px; /* Set a fixed height for the product name */
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+
+        .product-description {
+            height: 60px; /* Set a fixed height for the product description */
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+
+        .price {
+            margin-bottom: 10px;
+        }
+
+    </style>
+</head>
 <!-- END nav -->
 <section class="home-slider owl-carousel">
     <div class="slider-item" style="background-image: url(asset/images/pexels-ivo-rainha-527110-1290141.jpg);">
@@ -19,7 +47,8 @@ use backend\models\Category;
                 <div class="col-md-8 col-sm-12 text-center ftco-animate">
                     <span class="subheading">Welcome</span>
                     <h1 class="mb-4">The Best Book Testing Experience</h1>
-                    <p class="mb-4 mb-md-5">A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                    <p class="mb-4 mb-md-5">A small river named Duden flows by their place and supplies it with the
+                        necessary regelialia.</p>
                 </div>
 
             </div>
@@ -34,7 +63,8 @@ use backend\models\Category;
                 <div class="col-md-8 col-sm-12 text-center ftco-animate">
                     <span class="subheading">Welcome</span>
                     <h1 class="mb-4">Amazing Taste &amp; Beautiful Place</h1>
-                    <p class="mb-4 mb-md-5">A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                    <p class="mb-4 mb-md-5">A small river named Duden flows by their place and supplies it with the
+                        necessary regelialia.</p>
                 </div>
 
             </div>
@@ -49,7 +79,8 @@ use backend\models\Category;
                 <div class="col-md-8 col-sm-12 text-center ftco-animate">
                     <span class="subheading">Welcome</span>
                     <h1 class="mb-4">Creamy Hot and Ready to Serve</h1>
-                    <p class="mb-4 mb-md-5">A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                    <p class="mb-4 mb-md-5">A small river named Duden flows by their place and supplies it with the
+                        necessary regelialia.</p>
                 </div>
 
             </div>
@@ -66,7 +97,12 @@ use backend\models\Category;
                 <h2 class="mb-4">Our Story</h2>
             </div>
             <div>
-                <p>On her way she met a copy. The copy warned the Little Blind Text, that where it came from it would have been rewritten a thousand times and everything that was left from its origin would be the word "and" and the Little Blind Text should turn around and return to its own, safe country. But nothing the copy said could convince her and so it didn’t take long until a few insidious Copy Writers ambushed her, made her drunk with Longe and Parole and dragged her into their agency, where they abused her for their.</p>
+                <p>On her way she met a copy. The copy warned the Little Blind Text, that where it came from it would
+                    have been rewritten a thousand times and everything that was left from its origin would be the word
+                    "and" and the Little Blind Text should turn around and return to its own, safe country. But nothing
+                    the copy said could convince her and so it didn’t take long until a few insidious Copy Writers
+                    ambushed her, made her drunk with Longe and Parole and dragged her into their agency, where they
+                    abused her for their.</p>
             </div>
         </div>
     </div>
@@ -82,7 +118,8 @@ use backend\models\Category;
                     </div>
                     <div class="media-body">
                         <h3 class="heading">Easy to Order</h3>
-                        <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
+                        <p>Even the all-powerful Pointing has no control about the blind texts it is an almost
+                            unorthographic.</p>
                     </div>
                 </div>
             </div>
@@ -93,7 +130,8 @@ use backend\models\Category;
                     </div>
                     <div class="media-body">
                         <h3 class="heading">Fastest Delivery</h3>
-                        <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
+                        <p>Even the all-powerful Pointing has no control about the blind texts it is an almost
+                            unorthographic.</p>
                     </div>
                 </div>
             </div>
@@ -103,7 +141,8 @@ use backend\models\Category;
                         <span class="flaticon-coffee-bean"></span></div>
                     <div class="media-body">
                         <h3 class="heading">Quality Book</h3>
-                        <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
+                        <p>Even the all-powerful Pointing has no control about the blind texts it is an almost
+                            unorthographic.</p>
                     </div>
                 </div>
             </div>
@@ -118,30 +157,37 @@ use backend\models\Category;
                 <div class="heading-section text-md-right ftco-animate">
                     <span class="subheading">Discover</span>
                     <h2 class="mb-4">Our Book</h2>
-                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-                    <p><a href="index.php?r=site/products" class="btn btn-primary btn-outline-primary px-4 py-3">View Full Book</a></p>
+                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and
+                        Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the
+                        coast of the Semantics, a large language ocean.</p>
+                    <p><a href="index.php?r=site/products" class="btn btn-primary btn-outline-primary px-4 py-3">View
+                            Full Book</a></p>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="row">
                     <div class="col-md-6">
                         <div class="menu-entry">
-                            <a href="#" class="img" style="background-image: url(asset/images/pexels-cottonbro-5026973.jpg);"></a>
+                            <a href="#" class="img"
+                               style="background-image: url(asset/images/pexels-cottonbro-5026973.jpg);"></a>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="menu-entry mt-lg-4">
-                            <a href="#" class="img" style="background-image: url(asset/images/pexels-thought-catalog-317580-904620.jpg);"></a>
+                            <a href="#" class="img"
+                               style="background-image: url(asset/images/pexels-thought-catalog-317580-904620.jpg);"></a>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="menu-entry">
-                            <a href="#" class="img" style="background-image: url(asset/images/pexels-pixabay-256450.jpg);"></a>
+                            <a href="#" class="img"
+                               style="background-image: url(asset/images/pexels-pixabay-256450.jpg);"></a>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="menu-entry mt-lg-4">
-                            <a href="#" class="img" style="background-image: url(asset/images/pexels-polina-zimmerman-3747497.jpg);"></a>
+                            <a href="#" class="img"
+                               style="background-image: url(asset/images/pexels-polina-zimmerman-3747497.jpg);"></a>
                         </div>
                     </div>
                 </div>
@@ -150,7 +196,9 @@ use backend\models\Category;
     </div>
 </section>
 
-<section class="ftco-counter ftco-bg-dark img" id="section-counter" style="background-image: url(asset/images/pexels-joshsorenson-990432.jpg);" data-stellar-background-ratio="0.5">
+<section class="ftco-counter ftco-bg-dark img" id="section-counter"
+         style="background-image: url(asset/images/pexels-joshsorenson-990432.jpg);"
+         data-stellar-background-ratio="0.5">
     <div class="overlay"></div>
     <div class="container">
         <div class="row justify-content-center">
@@ -204,55 +252,42 @@ use backend\models\Category;
             <div class="col-md-7 heading-section ftco-animate text-center">
                 <span class="subheading">Discover</span>
                 <h2 class="mb-4">Best Book Sellers</h2>
-                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live
+                    the blind texts.</p>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-3">
-                <div class="menu-entry">
-                    <a href="#" class="img" style="background-image: url(asset/images/menu-1.jpg);"></a>
-                    <div class="text text-center pt-4">
-                        <h3><a href="#">Coffee Capuccino</a></h3>
-                        <p>A small river named Duden flows by their place and supplies</p>
-                        <p class="price"><span>$5.90</span></p>
-                        <p><a href="#" class="btn btn-primary btn-outline-primary">Add to Cart</a></p>
-                    </div>
-                </div>
+        <div class="container">
+            <div class="row">
+                <?php
+                $count = 0;
+                foreach ($products
+
+                as $product):
+                if ($count % 4 == 0 && $count != 0): ?>
             </div>
-            <div class="col-md-3">
-                <div class="menu-entry">
-                    <a href="#" class="img" style="background-image: url(asset/images/menu-2.jpg);"></a>
-                    <div class="text text-center pt-4">
-                        <h3><a href="#">Coffee Capuccino</a></h3>
-                        <p>A small river named Duden flows by their place and supplies</p>
-                        <p class="price"><span>$5.90</span></p>
-                        <p><a href="#" class="btn btn-primary btn-outline-primary">Add to Cart</a></p>
+            <div class="row">
+                <?php endif;
+                if ($count == 20) break; // Stop after 20 products (5 rows of 4 products each)
+                $count++;
+                ?>
+                <div class="col-md-3">
+                    <div class="menu-entry">
+                        <a href="index.php?r=site/view&id=<?= $product->id ?>" class="img"
+                           style="background-image: url(<?= $product->image ?>);"></a>
+                        <div class="text text-center pt-4">
+                            <h3 class="product-name"><a href="#"><?= $product->name ?></a></h3>
+                            <p class="product-description">A small river named Duden flows by their place and
+                                supplies</p>
+                            <p class="price"><span><?php $s = number_format($product->price);
+                                    echo 'Giá : ' . $s . ' VNĐ'; ?></span></p>
+                            <p><a href="#" class="btn btn-primary btn-outline-primary">Add to Cart</a></p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-3">
-                <div class="menu-entry">
-                    <a href="#" class="img" style="background-image: url(asset/images/menu-3.jpg);"></a>
-                    <div class="text text-center pt-4">
-                        <h3><a href="#">Coffee Capuccino</a></h3>
-                        <p>A small river named Duden flows by their place and supplies</p>
-                        <p class="price"><span>$5.90</span></p>
-                        <p><a href="#" class="btn btn-primary btn-outline-primary">Add to Cart</a></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="menu-entry">
-                    <a href="#" class="img" style="background-image: url(asset/images/menu-4.jpg);"></a>
-                    <div class="text text-center pt-4">
-                        <h3><a href="#">Coffee Capuccino</a></h3>
-                        <p>A small river named Duden flows by their place and supplies</p>
-                        <p class="price"><span>$5.90</span></p>
-                        <p><a href="#" class="btn btn-primary btn-outline-primary">Add to Cart</a></p>
-                    </div>
-                </div>
+                <?php endforeach; ?>
             </div>
         </div>
+
     </div>
 </section>
 
@@ -260,28 +295,32 @@ use backend\models\Category;
     <div class="container-wrap">
         <div class="row no-gutters">
             <div class="col-md-3 ftco-animate">
-                <a href="gallery.html" class="gallery img d-flex align-items-center" style="background-image: url(asset/images/pexels-cottonbro-4855321.jpg);">
+                <a href="gallery.html" class="gallery img d-flex align-items-center"
+                   style="background-image: url(asset/images/pexels-cottonbro-4855321.jpg);">
                     <div class="icon mb-4 d-flex align-items-center justify-content-center">
                         <span class="icon-search"></span>
                     </div>
                 </a>
             </div>
             <div class="col-md-3 ftco-animate">
-                <a href="gallery.html" class="gallery img d-flex align-items-center" style="background-image: url(asset/images/pexels-anastasiia-chaikovska-206547003-15385901.jpg);">
+                <a href="gallery.html" class="gallery img d-flex align-items-center"
+                   style="background-image: url(asset/images/pexels-anastasiia-chaikovska-206547003-15385901.jpg);">
                     <div class="icon mb-4 d-flex align-items-center justify-content-center">
                         <span class="icon-search"></span>
                     </div>
                 </a>
             </div>
             <div class="col-md-3 ftco-animate">
-                <a href="gallery.html" class="gallery img d-flex align-items-center" style="background-image: url(asset/images/pexels-nicole-berro-991141-2393793.jpg);">
+                <a href="gallery.html" class="gallery img d-flex align-items-center"
+                   style="background-image: url(asset/images/pexels-nicole-berro-991141-2393793.jpg);">
                     <div class="icon mb-4 d-flex align-items-center justify-content-center">
                         <span class="icon-search"></span>
                     </div>
                 </a>
             </div>
             <div class="col-md-3 ftco-animate">
-                <a href="gallery.html" class="gallery img d-flex align-items-center" style="background-image: url(asset/images/pexels-cottonbro-4861377.jpg);">
+                <a href="gallery.html" class="gallery img d-flex align-items-center"
+                   style="background-image: url(asset/images/pexels-cottonbro-4861377.jpg);">
                     <div class="icon mb-4 d-flex align-items-center justify-content-center">
                         <span class="icon-search"></span>
                     </div>
@@ -290,14 +329,16 @@ use backend\models\Category;
         </div>
     </div>
 </section>
-<section class="ftco-section img" id="ftco-testimony" style="background-image: url(asset/images/pexels-cottonbro-4861377.jpg);"  data-stellar-background-ratio="0.5">
+<section class="ftco-section img" id="ftco-testimony"
+         style="background-image: url(asset/images/pexels-cottonbro-4861377.jpg);" data-stellar-background-ratio="0.5">
     <div class="overlay"></div>
     <div class="container">
         <div class="row justify-content-center mb-5">
             <div class="col-md-7 heading-section text-center ftco-animate">
                 <span class="subheading">Testimony</span>
                 <h2 class="mb-4">Customers Says</h2>
-                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live
+                    the blind texts.</p>
             </div>
         </div>
     </div>
@@ -306,65 +347,76 @@ use backend\models\Category;
             <div class="col-lg align-self-sm-end">
                 <div class="testimony">
                     <blockquote>
-                        <p>&ldquo;Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small.&rdquo;</p>
+                        <p>&ldquo;Even the all-powerful Pointing has no control about the blind texts it is an almost
+                            unorthographic life One day however a small.&rdquo;</p>
                     </blockquote>
                     <div class="author d-flex mt-4">
                         <div class="image mr-3 align-self-center">
                             <img src="asset/images/person_4.jpg" alt="">
                         </div>
-                        <div class="name align-self-center">Louise Kelly <span class="position">Illustrator Designer</span></div>
+                        <div class="name align-self-center">Louise Kelly <span
+                                    class="position">Illustrator Designer</span></div>
                     </div>
                 </div>
             </div>
             <div class="col-lg align-self-sm-end">
                 <div class="testimony overlay">
                     <blockquote>
-                        <p>&ldquo;Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.&rdquo;</p>
+                        <p>&ldquo;Even the all-powerful Pointing has no control about the blind texts it is an almost
+                            unorthographic life One day however a small line of blind text by the name of Lorem Ipsum
+                            decided to leave for the far World of Grammar.&rdquo;</p>
                     </blockquote>
                     <div class="author d-flex mt-4">
                         <div class="image mr-3 align-self-center">
                             <img src="asset/images/person_2.jpg" alt="">
                         </div>
-                        <div class="name align-self-center">Louise Kelly <span class="position">Illustrator Designer</span></div>
+                        <div class="name align-self-center">Louise Kelly <span
+                                    class="position">Illustrator Designer</span></div>
                     </div>
                 </div>
             </div>
             <div class="col-lg align-self-sm-end">
                 <div class="testimony">
                     <blockquote>
-                        <p>&ldquo;Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small  line of blind text by the name. &rdquo;</p>
+                        <p>&ldquo;Even the all-powerful Pointing has no control about the blind texts it is an almost
+                            unorthographic life One day however a small line of blind text by the name. &rdquo;</p>
                     </blockquote>
                     <div class="author d-flex mt-4">
                         <div class="image mr-3 align-self-center">
                             <img src="asset/images/person_3.jpg" alt="">
                         </div>
-                        <div class="name align-self-center">Louise Kelly <span class="position">Illustrator Designer</span></div>
+                        <div class="name align-self-center">Louise Kelly <span
+                                    class="position">Illustrator Designer</span></div>
                     </div>
                 </div>
             </div>
             <div class="col-lg align-self-sm-end">
                 <div class="testimony overlay">
                     <blockquote>
-                        <p>&ldquo;Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however.&rdquo;</p>
+                        <p>&ldquo;Even the all-powerful Pointing has no control about the blind texts it is an almost
+                            unorthographic life One day however.&rdquo;</p>
                     </blockquote>
                     <div class="author d-flex mt-4">
                         <div class="image mr-3 align-self-center">
                             <img src="asset/images/person_2.jpg" alt="">
                         </div>
-                        <div class="name align-self-center">Louise Kelly <span class="position">Illustrator Designer</span></div>
+                        <div class="name align-self-center">Louise Kelly <span
+                                    class="position">Illustrator Designer</span></div>
                     </div>
                 </div>
             </div>
             <div class="col-lg align-self-sm-end">
                 <div class="testimony">
                     <blockquote>
-                        <p>&ldquo;Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small  line of blind text by the name. &rdquo;</p>
+                        <p>&ldquo;Even the all-powerful Pointing has no control about the blind texts it is an almost
+                            unorthographic life One day however a small line of blind text by the name. &rdquo;</p>
                     </blockquote>
                     <div class="author d-flex mt-4">
                         <div class="image mr-3 align-self-center">
                             <img src="asset/images/person_3.jpg" alt="">
                         </div>
-                        <div class="name align-self-center">Louise Kelly <span class="position">Illustrator Designer</span></div>
+                        <div class="name align-self-center">Louise Kelly <span
+                                    class="position">Illustrator Designer</span></div>
                     </div>
                 </div>
             </div>

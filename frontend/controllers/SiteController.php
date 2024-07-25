@@ -210,7 +210,7 @@ class SiteController extends Controller
     public function actionIndex()
     {
         $products = Product::find()
-            ->limit(40)
+            ->limit(4)
             ->all();
 
         return $this->render("index", [
