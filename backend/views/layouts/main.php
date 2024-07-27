@@ -43,7 +43,7 @@ AppAsset::register($this);
         <div class="logo">
             <a href="https://www.creative-tim.com" class="simple-text logo-mini">
                 <div class="logo-image-small">
-                    <img src="../assets/img/apple-icon.png">
+                    <i class="fa-brands fa-atlassian" style="color: #151414;"></i>
                 </div>
                 <!-- <p>CT</p> -->
             </a>
@@ -55,20 +55,19 @@ AppAsset::register($this);
             <ul class="nav">
                 <li class="active ">
                     <a href="index.php">
-                        <i class="nc-icon nc-bank"></i>
+                        <i class="fa-solid fa-house" style="color: #1ba9c5;"></i>
                         <p>Dashboard</p>
                     </a>
                 </li>
                 <li>
                     <a href="index.php?r=product">
-                        <i class="fa-solid fa-book"></i>
-
+                        <i class="fa-solid fa-book" style="color: #B197FC;"></i>
                         <p>Product</p>
                     </a>
                 </li>
                 <li>
                     <a href="index.php?r=category ">
-                        <i class="fa-solid fa-list"></i>
+                        <i class="fa-solid fa-list" style="color: #a21ed2;"></i>
                         <p>Category</p>
                     </a>
                 </li>
@@ -76,26 +75,26 @@ AppAsset::register($this);
 
                 <li>
                     <a href="index.php?r=user">
-                        <i class="nc-icon nc-single-02"></i>
+                        <i class="fa-solid fa-user" style="color: #FFD43B;"></i>
                         <p>User Profile</p>
                     </a>
                 </li>
                 <li>
                     <a href="index.php?r=orders">
-                        <i class="fa-solid fa-cart-shopping"></i>
+                        <i class="fa-solid fa-cart-shopping fa-2xs" style="color: #63E6BE;"></i>
                         <p>Quản lý đơn hàng</p>
                     </a>
 
                 <li>
                 <li>
                     <a href="index.php?r=orders-item">
-                        <i class="fa-solid fa-users"></i>
+                        <i class="fa-solid fa-users" style="color: #FFD43B;"></i>
                         <p>Quản lý Orders</p>
                     </a>
                 </li>
                 <li>
                     <a href="index.php?r=contact">
-                        <i class="fa-solid fa-pencil"></i>
+                        <i class="fa-solid fa-pencil" style="color: #74C0FC;"></i>
                         <p>Quản lý liên hệ</p>
                     </a>
                 </li>

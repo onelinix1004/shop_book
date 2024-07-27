@@ -9,14 +9,28 @@ use frontend\models\Checkout;
 use backend\models\Orders;
 use backend\models\OrdersItem;
 
+/**
+ * CheckoutController handles the checkout process in a Yii2 application.
+ */
 class CheckoutController extends Controller
 {
+    /**
+     * Overrides the default beforeAction method to disable CSRF validation for all actions in this controller.
+     *
+     * @param \yii\base\Action $action The action to be executed.
+     * @return bool Whether the action should be executed.
+     */
     public function beforeAction($action)
     {
         $this->enableCsrfValidation = false;
         return parent::beforeAction($action);
     }
 
+    /**
+     * Displays the checkout page and handles the checkout process.
+     *
+     * @return string|\yii\web\Response Rendered view of the checkout page or a redirect response.
+     */
     public function actionIndex()
     {
         if (Yii::$app->user->isGuest) {
@@ -77,6 +91,13 @@ class CheckoutController extends Controller
         }
     }
 
+    /**
+     * Displays the details of a specific order.
+     *
+     * @param int $id The ID of the order to be displayed.
+     * @return string Rendered view of the order details page.
+     * @throws \yii\web\NotFoundHttpException If the order is not found.
+     */
     public function actionOrderDetails($id)
     {
         $order = Orders::findOne($id);
@@ -92,3 +113,5 @@ class CheckoutController extends Controller
         ]);
     }
 }
+
+?>

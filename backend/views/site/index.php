@@ -1,3 +1,11 @@
+<?php
+// Đếm số lượng bản ghi trong các bảng User, Orders, Product và Contact
+$countUser = backend\models\User::find()->count();
+$countOrders = backend\models\Orders::find()->count();
+$countProduct = backend\models\Product::find()->count();
+$countContact = backend\models\Contact::find()->count();
+?>
+
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <div class="content">
@@ -8,13 +16,13 @@
                     <div class="row">
                         <div class="col-5 col-md-4">
                             <div class="icon-big text-center icon-warning">
-                                <i class="nc-icon nc-globe text-warning"></i>
+                                <i class="fa-solid fa-user" style="color: #FFD43B;"></i>
                             </div>
                         </div>
                         <div class="col-7 col-md-8">
                             <div class="numbers">
-                                <p class="card-category">Capacity</p>
-                                <p class="card-title">150GB<p>
+                                <p class="card-category">User</p>
+                                <p class="card-title"><?=$countUser?><p>
                             </div>
                         </div>
                     </div>
@@ -34,13 +42,13 @@
                     <div class="row">
                         <div class="col-5 col-md-4">
                             <div class="icon-big text-center icon-warning">
-                                <i class="nc-icon nc-money-coins text-success"></i>
+                                <i class="fa-solid fa-cart-shopping fa-2xs" style="color: #63E6BE;"></i>
                             </div>
                         </div>
                         <div class="col-7 col-md-8">
                             <div class="numbers">
-                                <p class="card-category">Revenue</p>
-                                <p class="card-title">$ 1,345<p>
+                                <p class="card-category">Order</p>
+                                <p class="card-title"><?=$countOrders?><p>
                             </div>
                         </div>
                     </div>
@@ -48,8 +56,8 @@
                 <div class="card-footer ">
                     <hr>
                     <div class="stats">
-                        <i class="fa fa-calendar-o"></i>
-                        Last day
+                        <i class="fa fa-refresh"></i>
+                        Update Now
                     </div>
                 </div>
             </div>
@@ -60,13 +68,13 @@
                     <div class="row">
                         <div class="col-5 col-md-4">
                             <div class="icon-big text-center icon-warning">
-                                <i class="nc-icon nc-vector text-danger"></i>
+                                <i class="fa-solid fa-book" style="color: #B197FC;"></i>
                             </div>
                         </div>
                         <div class="col-7 col-md-8">
                             <div class="numbers">
-                                <p class="card-category">Errors</p>
-                                <p class="card-title">23<p>
+                                <p class="card-category">Book</p>
+                                <p class="card-title"> <?=$countProduct?><p>
                             </div>
                         </div>
                     </div>
@@ -74,8 +82,8 @@
                 <div class="card-footer ">
                     <hr>
                     <div class="stats">
-                        <i class="fa fa-clock-o"></i>
-                        In the last hour
+                        <i class="fa fa-refresh"></i>
+                        Update Now
                     </div>
                 </div>
             </div>
@@ -86,13 +94,13 @@
                     <div class="row">
                         <div class="col-5 col-md-4">
                             <div class="icon-big text-center icon-warning">
-                                <i class="nc-icon nc-favourite-28 text-primary"></i>
+                                <i class="fa-brands fa-twitter" style="color: #74C0FC;"></i>
                             </div>
                         </div>
                         <div class="col-7 col-md-8">
                             <div class="numbers">
-                                <p class="card-category">Followers</p>
-                                <p class="card-title">+45K<p>
+                                <p class="card-category">Contact</p>
+                                <p class="card-title"><?=$countContact?><p>
                             </div>
                         </div>
                     </div>
