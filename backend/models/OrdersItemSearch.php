@@ -27,9 +27,9 @@ class OrdersItemSearch extends OrdersItem
      * @inheritdoc
      */
     public function scenarios()
-{
-    return parent::scenarios();
-}
+    {
+        return parent::scenarios();
+    }
 
 
     /**
