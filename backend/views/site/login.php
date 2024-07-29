@@ -21,7 +21,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <div class="messages">
              
             </div>          
-                <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
+                <?php $form = \yii\bootstrap5\ActiveForm::begin(['id' => 'login-form']); ?>
               <fieldset>
                 <div class="form-group">
                   <?= $form->field($model, 'username')->textInput(['autofocus' => true])->label('Tên đăng nhập') ?>
@@ -33,7 +33,7 @@ $this->params['breadcrumbs'][] = $this->title;
                   <?= $form->field($model, 'rememberMe')->checkbox()->label('Ghi nhớ') ?>
                 </div>                
                 <div class="form-group">
-                  <?= Html::submitButton('Đăng Nhập', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
+                  <?= \yii\bootstrap5\Html::submitButton('Đăng Nhập', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
                 </div>
               </fieldset>
             <?php ActiveForm::end(); ?>
