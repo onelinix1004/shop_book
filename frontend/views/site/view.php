@@ -42,6 +42,15 @@ use frontend\models\CommentForm;
             margin-bottom: 10px;
         }
 
+        .product-rating-content .fa-star-o {
+            color: gray;
+        }
+
+        .product-rating-content .fa-solid fa-star.checked,
+        .product-rating-content .fa-solid fa-star:hover {
+            color: gold;
+        }
+
     </style>
 
 </head>
@@ -123,53 +132,45 @@ use frontend\models\CommentForm;
             </div>
 
             <div>
-                <?php $form = ActiveForm::begin([
-                    'id' => 'review-form',
-                ]); ?>
+                <?php $form = ActiveForm::begin(['id' => 'review-form']); ?>
                 <h3 style="margin-top: 20px; margin-bottom: 15px;">Chọn đánh giá của bạn</h3>
                 <div class="rating">
-                    <span class="fa-solid fa-star" id="star1" style="font-size: 24px; color: gray;"></span>
-                    <span class="fa-solid fa-star" id="star1" style="font-size: 24px; color: grey;"></span>
-                    <span class="fa-solid fa-star" id="star3" style="font-size: 24px; color: gray;"></span>
-                    <span class="fa-solid fa-star" id="star4" style="font-size: 24px; color: gray;"></span>
-                    <span class="fa-solid fa-star" id="star5" style="font-size: 24px; color: gray;"></span>
+                    <span class="fa fa-star" id="star1" style="font-size: 24px; color: gray;"></span>
+                    <span class="fa fa-star" id="star2" style="font-size: 24px; color: gray;"></span>
+                    <span class="fa fa-star" id="star3" style="font-size: 24px; color: gray;"></span>
+                    <span class="fa fa-star" id="star4" style="font-size: 24px; color: gray;"></span>
+                    <span class="fa fa-star" id="star5" style="font-size: 24px; color: gray;"></span>
                 </div>
                 <?= $form->field($reviewModel, 'rating')->hiddenInput(['id' => 'rating-input'])->label(false) ?>
-                <?= $form->field($reviewModel, 'comment')->textarea(['rows' => 2, 'style' => 'width: 100%; max-width: 800px; margin: 0 auto; ;']) ?>
+                <?= $form->field($reviewModel, 'comment')->textarea(['rows' => 2]) ?>
                 <div class="form-group">
                     <?= Html::submitButton('Post Review', ['class' => 'btn btn-success']) ?>
                 </div>
                 <script>
-                    $('#add-review-btn').click(function() {
-                        $('#review-form').toggle();
-                    });
+                    $(document).ready(function() {
+                        $('.rating .fa').on('click', function() {
+                            let rating = $(this).index() + 1;
+                            setRating(rating);
+                        });
 
-                    $('#add-review-btn').hover(function() {
-                        $(this).removeClass('btn-primary').addClass('btn-outline-primary');
-                    }, function() {
-                        $(this).removeClass('btn-outline-primary').addClass('btn-primary');
-                    });
+                        $('.rating .fa').hover(function() {
+                            let index = $(this).index();
+                            for (let i = 0; i <= index; i++) {
+                                $('.rating .fa').eq(i).css('color', 'gold');
+                            }
+                        }, function() {
+                            $('.rating .fa').css('color', 'gray');
+                            $('.rating .fa.checked').css('color', 'gold');
+                        });
 
-                    $('.rating .fa-solid fa-star').on('click', function() {
-                        let rating = $(this).index() + 1;
-                        setRating(rating);
-                    });
-
-                    $('.rating .fa-solid fa-star').hover(function() {
-                        $(this).css('color', 'gold');
-                    }, function() {
-                        if (!$(this).hasClass('checked')) {
-                            $(this).css('color', 'gray');
+                        function setRating(rating) {
+                            $('#rating-input').val(rating);
+                            $('.rating .fa').removeClass('checked').css('color', 'gray');
+                            for (let i = 0; i < rating; i++) {
+                                $('.rating .fa').eq(i).addClass('checked').css('color', 'gold');
+                            }
                         }
                     });
-
-                    function setRating(rating) {
-                        $('#rating-input').val(rating);
-                        $('.rating .fa-solid fa-star').removeClass('checked').css('color', 'gray');
-                        for (let i = 1; i <= rating; i++) {
-                            $('#star' + i).addClass('checked').css('color', 'gold');
-                        }
-                    }
                 </script>
                 <?php ActiveForm::end(); ?>
             </div>
