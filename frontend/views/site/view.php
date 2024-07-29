@@ -42,16 +42,10 @@ use frontend\models\CommentForm;
             margin-bottom: 10px;
         }
 
-        .product-rating-content .fa-star-o {
-            color: gray;
-        }
-
-        .product-rating-content .fa-solid fa-star.checked,
-        .product-rating-content .fa-solid fa-star:hover {
-            color: gold;
-        }
 
     </style>
+
+
 
 </head>
 <section class="home-slider owl-carousel">
@@ -72,6 +66,8 @@ use frontend\models\CommentForm;
         </div>
     </div>
 </section>
+
+
 
 
 <section class="ftco-section">
@@ -132,57 +128,98 @@ use frontend\models\CommentForm;
         <div class="box_1" style="width: 100%; max-width: 800px;">
             <h5 style="font-size: 20px; font-weight: 800;">OVERALL</h5>
             <h5 style="font-size: 35px;"><?= $averageRating ?></h5>
-            <div class="stars">
-                <span class="fa-solid fa-star" id="star1" style="font-size: 24px; color: gold;"></span>
-                <span class="fa-solid fa-star" id="star1" style="font-size: 24px; color: gold;"></span>
-                <span class="fa-solid fa-star" id="star1" style="font-size: 24px; color: gold;"></span>
-                <span class="fa-solid fa-star" id="star1" style="font-size: 24px; color: gold;"></span>
-                <span class="fa-solid fa-star" id="star1" style="font-size: 24px; color: gold;"></span>
+            <div class="start-container">
+                <?php if (is_numeric($averageRating)): ?>
+                    <?php $integerPart = floor($averageRating); ?>
+                    <?php $decimalPart = $averageRating - $integerPart; ?>
+                    <div class="stars">
+                        <?php for ($i = 1; $i <= 5; $i++): ?>
+                            <?php if ($i <= $integerPart): ?>
+                                <span class="fa-solid fa-star" style="font-size: 24px; color: gold; margin: 0 0.2rem;"></span>
+                            <?php elseif ($i == $integerPart + 1 && $decimalPart > 0): ?>
+                                <span class="fa-solid fa-star-half" style="font-size: 24px; color: gold; margin: 0 0.2rem;"></span>
+                            <?php else: ?>
+                                <span class="fa-solid fa-star" style="font-size: 24px; color: gray; margin: 0 0.2rem;"></span>
+                            <?php endif; ?>
+                        <?php endfor; ?>
+                    </div>
+                <?php else: ?>
+                    <p>No rating yet.</p>
+                <?php endif; ?>
             </div>
+
+            <style>
+                .start-container {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+                .stars {
+                    display: flex;
+                    align-items: center;
+                }
+            </style>
+
+        </div>
 
             <div>
                 <?php $form = ActiveForm::begin(['id' => 'review-form']); ?>
                 <h3 style="margin-top: 20px; margin-bottom: 15px;">Chọn đánh giá của bạn</h3>
                 <div class="rating">
-                    <span class="fa fa-star" id="star1" style="font-size: 24px; color: gray;"></span>
-                    <span class="fa fa-star" id="star2" style="font-size: 24px; color: gray;"></span>
-                    <span class="fa fa-star" id="star3" style="font-size: 24px; color: gray;"></span>
-                    <span class="fa fa-star" id="star4" style="font-size: 24px; color: gray;"></span>
-                    <span class="fa fa-star" id="star5" style="font-size: 24px; color: gray;"></span>
+                    <span class="fa-solid fa-star" id="star1" style="font-size: 24px; color: gray;" data-index="1"></span>
+                    <span class="fa-solid fa-star" id="star2" style="font-size: 24px; color: gray;" data-index="2"></span>
+                    <span class="fa-solid fa-star" id="star3" style="font-size: 24px; color: gray;" data-index="3"></span>
+                    <span class="fa-solid fa-star" id="star4" style="font-size: 24px; color: gray;" data-index="4"></span>
+                    <span class="fa-solid fa-star" id="star5" style="font-size: 24px; color: gray;" data-index="5"></span>
                 </div>
                 <?= $form->field($reviewModel, 'rating')->hiddenInput(['id' => 'rating-input'])->label(false) ?>
                 <?= $form->field($reviewModel, 'comment')->textarea(['rows' => 2]) ?>
                 <div class="form-group">
                     <?= Html::submitButton('Post Review', ['class' => 'btn btn-success']) ?>
                 </div>
-                <script>
-                    $(document).ready(function() {
-                        $('.rating .fa').on('click', function() {
-                            let rating = $(this).index() + 1;
-                            setRating(rating);
-                        });
-
-                        $('.rating .fa').hover(function() {
-                            let index = $(this).index();
-                            for (let i = 0; i <= index; i++) {
-                                $('.rating .fa').eq(i).css('color', 'gold');
-                            }
-                        }, function() {
-                            $('.rating .fa').css('color', 'gray');
-                            $('.rating .fa.checked').css('color', 'gold');
-                        });
-
-                        function setRating(rating) {
-                            $('#rating-input').val(rating);
-                            $('.rating .fa').removeClass('checked').css('color', 'gray');
-                            for (let i = 0; i < rating; i++) {
-                                $('.rating .fa').eq(i).addClass('checked').css('color', 'gold');
-                            }
-                        }
-                    });
-                </script>
                 <?php ActiveForm::end(); ?>
             </div>
+
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+            <script>
+                $(document).ready(function() {
+                    // Handle click events
+                    $('.rating .fa-solid').on('click', function() {
+                        let rating = $(this).data('index');
+                        setRating(rating);
+                    });
+
+                    // Handle hover events
+                    $('.rating .fa-solid').hover(function() {
+                        let index = $(this).data('index');
+                        highlightStars(index);
+                    }, function() {
+                        // Revert stars to their original color
+                        let currentRating = $('#rating-input').val();
+                        highlightStars(currentRating);
+                    });
+
+                    // Set the rating in the hidden input and update star colors
+                    function setRating(rating) {
+                        $('#rating-input').val(rating);
+                        highlightStars(rating);
+                    }
+
+                    // Highlight stars based on the rating
+                    function highlightStars(rating) {
+                        $('.rating .fa-solid').each(function() {
+                            let index = $(this).data('index');
+                            if (index <= rating) {
+                                $(this).css('color', 'gold');
+                            } else {
+                                $(this).css('color', 'gray');
+                            }
+                        });
+                    }
+                });
+            </script>
+
+
             <div class="review_list">
                 <?php foreach ($reviews as $review): ?>
                     <div class="review" style="display: flex; border-opacity: 0.5; width: 100%; max-width: 800px; margin: 0 auto;">
@@ -197,7 +234,7 @@ use frontend\models\CommentForm;
                                     <?php if ($i <= $review->rating): ?>
                                         <span class="fa-solid fa-star" style="font-size: 24px; color: gold;"></span>
                                     <?php else: ?>
-                                        <span class="fa-solid fa-star" style="font-size: 24px; color: gold;"></span>
+                                        <span class="fa-solid fa-star" style="font-size: 24px; color: gray;"></span>
                                     <?php endif; ?>
                                 <?php endfor; ?>
                             </div>
