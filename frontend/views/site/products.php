@@ -65,6 +65,24 @@ use backend\models\Category;
         .search-bar-container input[type="text"]:focus {
             width: 100%; /* Keep it at 100% width on focus */
         }
+
+        .menu-entry .img {
+            display: block;
+            width: 100%;
+            height: 350px; /* Set a fixed height */
+            background-size: cover;
+            background-position: center center;
+        }
+
+        .product-name {
+            height: 50px; /* Set a fixed height for the product name */
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+
+        .price {
+            margin-bottom: 10px;
+        }
     </style>
 
 
@@ -105,13 +123,15 @@ use backend\models\Category;
                         <div class="row">
                     <?php endif; ?>
                     <div class="col-md-4 col-sm-6">
-                        <a href="index.php?r=site/view&id=<?= $product->id ?>">
-                            <img src="<?= $product->image ?>" alt="img" style="width: 200px; height: 290px;">
-                            <div class="text">
-                                <span><?= $product->name ?></span>
-                                <p><?php $s = number_format($product->price); echo 'Giá : ' . $s . ' VNĐ'; ?></p>
+                        <div class="menu-entry">
+                            <a href="index.php?r=site/view&id=<?= $product->id ?>" class="img"
+                               style="background-image: url(<?= $product->image ?>);"></a>
+                            <div class="text text-center pt-4">
+                                <h3 class="product-name"><a href="#"><?= $product->name ?></a></h3>
+                                <p class="price"><span><?php $s = number_format($product->price);
+                                        echo 'Giá : ' . $s . ' VNĐ'; ?></span></p>
                             </div>
-                        </a>
+                        </div>
                     </div>
                     <?php $counter++; ?>
                     <?php if ($counter % 3 == 0): ?>

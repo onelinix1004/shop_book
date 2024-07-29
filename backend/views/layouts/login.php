@@ -51,7 +51,7 @@ AppAsset::register($this);
 
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="/cafe/frontend/web"><span class="glyphicon glyphicon-home"></span> Quay lại Trang chủ</a></li>
+            <li><a href="http://frontend3.test/index.php"><span class="glyphicon glyphicon-home"></span> Quay lại Trang chủ</a></li>
             <li><a href=""><span class="glyphicon glyphicon-log-in"></span> Đăng Nhập</a></li>
           </ul>
         </div>

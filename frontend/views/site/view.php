@@ -83,6 +83,17 @@ use frontend\models\CommentForm;
             </div>
             <div class="col-lg-6 product-details pl-md-5 ftco-animate">
                 <h3><?= $product->name ?></h3>
+                <p style="color: white">
+                    <?php
+                    $category = backend\models\Category::find()->where(["id" => $product->category_id])->asArray()->one();
+
+                    if ($category) {
+                        echo '<i class="fa fa-folder-open" style="margin-right: 5px; margin-top:5px; font-size:20px;"></i> Category: ' . $category['name'];
+                    } else {
+                        echo '<i class="fa fa-folder-open" style="margin-right: 5px;"></i> Category not found';
+                    }
+                    ?>
+                </p>
                 <p class="price"><span>$<?= $product->price ?></span></p>
                 <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a
                     paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
@@ -113,12 +124,10 @@ use frontend\models\CommentForm;
 <!-- review -->
 <section class="ftco-section">
     <div class="container" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
-        <div class="row justify-content-center mb-5 pb-3" style="margin-bottom: 0px">
             <div class="col-md-7 heading-section ftco-animate">
                 <span class="subheading">Discover</span>
                 <h2 class="mb-4">Review Book</h2>
             </div>
-        </div>
 
         <div class="box_1" style="width: 100%; max-width: 800px;">
             <h5 style="font-size: 20px; font-weight: 800;">OVERALL</h5>
