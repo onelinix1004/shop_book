@@ -140,7 +140,7 @@ use backend\models\Category;
             <div class="col-md-4 ftco-animate">
                 <div class="media d-block text-center block-6 services">
                     <div class="icon d-flex justify-content-center align-items-center mb-5">
-                        <span class="fa-solid fa-book"></span></div>
+                        <span class="fa-solid fa-check"></span></div>
 
                     <div class="media-body">
                         <h3 class="heading">Quality Book</h3>

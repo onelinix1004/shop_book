@@ -21,9 +21,22 @@ use backend\models\Category;
         ArrayHelper::map(Category::find()->all(), 'id', 'name'),
         ['prompt' => 'Chọn Category']
     ) ?>
-    
-    <?= $form->field($model, 'file')->fileInput() ?>
-    <?= $form->field($model, 'pdfFile')->fileInput() ?>
+
+    <div class="form-group">
+        <?= Html::activeLabel($model, 'file') ?>
+        <div class="input-group">
+            <span class="input-group-text"><i class="fas fa-image"></i></span>
+            <?= Html::activeFileInput($model, 'file', ['class' => 'form-control']) ?>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <?= Html::activeLabel($model, 'pdfFile') ?>
+        <div class="input-group">
+            <span class="input-group-text"><i class="fas fa-file-pdf"></i></span>
+            <?= Html::activeFileInput($model, 'pdfFile', ['class' => 'form-control']) ?>
+        </div>
+    </div>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Thêm Mới' : 'Cập nhật', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
