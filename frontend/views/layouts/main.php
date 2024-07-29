@@ -13,7 +13,9 @@ use backend\models\Category;
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" type="image/svg+xml" href="../asset/images/logo.svg">
 
+    <title>Book Old Store</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
 
@@ -46,7 +48,9 @@ use backend\models\Category;
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
     <div class="container">
-        <a class="navbar-brand" href="index.php">Book Old<small>Store</small></a>
+        <a class="navbar-brand" href="index.php">
+            <i class="fa-brands fa-atlassian" style="color: #B197FC;"></i> Book <small>Old Store</small>
+        </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="oi oi-menu"></span> Menu
         </button>

@@ -12,6 +12,7 @@ use backend\models\Category;
 
 ?>
 <head>
+    <title>Home</title>
     <style>
         .menu-entry .img {
             display: block;
