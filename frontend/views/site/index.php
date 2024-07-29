@@ -140,7 +140,7 @@ use backend\models\Category;
             <div class="col-md-4 ftco-animate">
                 <div class="media d-block text-center block-6 services">
                     <div class="icon d-flex justify-content-center align-items-center mb-5">
-                        <span class="flaticon-coffee-bean"></span></div>
+                        <span class="fa-solid fa-book"></span></div>
 
                     <div class="media-body">
                         <h3 class="heading">Quality Book</h3>
@@ -210,7 +210,7 @@ use backend\models\Category;
                     <div class="col-md-6 col-lg-3 d-flex justify-content-center counter-wrap ftco-animate">
                         <div class="block-18 text-center">
                             <div class="text">
-                                <div class="icon"><span class="flaticon-coffee-cup"></span></div>
+                                <div class="icon"><span class="fa-brands fa-atlassian"></span></div>
                                 <strong class="number" data-number="100">0</strong>
                                 <span>Book Branches</span>
                             </div>
@@ -219,7 +219,7 @@ use backend\models\Category;
                     <div class="col-md-6 col-lg-3 d-flex justify-content-center counter-wrap ftco-animate">
                         <div class="block-18 text-center">
                             <div class="text">
-                                <div class="icon"><span class="flaticon-coffee-cup"></span></div>
+                                <div class="icon"><span class="fa-brands fa-atlassian"></span></div>
                                 <strong class="number" data-number="85">0</strong>
                                 <span>Number of Awards</span>
                             </div>
@@ -228,7 +228,7 @@ use backend\models\Category;
                     <div class="col-md-6 col-lg-3 d-flex justify-content-center counter-wrap ftco-animate">
                         <div class="block-18 text-center">
                             <div class="text">
-                                <div class="icon"><span class="flaticon-coffee-cup"></span></div>
+                                <div class="icon"><span class="fa-brands fa-atlassian"></span></div>
                                 <strong class="number" data-number="10567">0</strong>
                                 <span>Happy Customer</span>
                             </div>
@@ -237,7 +237,7 @@ use backend\models\Category;
                     <div class="col-md-6 col-lg-3 d-flex justify-content-center counter-wrap ftco-animate">
                         <div class="block-18 text-center">
                             <div class="text">
-                                <div class="icon"><span class="flaticon-coffee-cup"></span></div>
+                                <div class="icon"><span class="fa-brands fa-atlassian"></span></div>
                                 <strong class="number" data-number="900">0</strong>
                                 <span>Staff</span>
                             </div>
