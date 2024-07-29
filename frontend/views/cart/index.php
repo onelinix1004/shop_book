@@ -42,6 +42,23 @@ use backend\models\Category;
             <div class="col-md-12 ftco-animate">
                 <div class="cart-list">
                     <table class="table">
+                        <?php if (!$cartstore): ?>
+                        <thead class="thead-primary">
+                        <tr class="text-center">
+                            <th>&nbsp;</th>
+                            <th>&nbsp;</th>
+                            <th>&nbsp;</th>
+                            <th>&nbsp;</th>
+                            <th>&nbsp;</th>
+                            <th>&nbsp;</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td><h3 style="color: white">Chưa có sản phẩm nào được thêm vào giỏ!</h3></td>
+                        </tr>
+                        </tbody>
+                        <?php else: ?>
                         <thead class="thead-primary">
                         <tr class="text-center">
                             <th>&nbsp;</th>
@@ -53,23 +70,17 @@ use backend\models\Category;
                         </tr>
                         </thead>
                         <tbody>
-                        <?php if (!$cartstore): ?>
-                            <tr>
-                                <td><h3 style="color: white">Chưa có sản phẩm nào được thêm vào giỏ!</h3></td>
-                            </tr>
-                        <?php else: ?>
                             <?php foreach ($cartstore as $product): ?>
                                 <tr class="text-center">
                                     <td class="product-remove"><a href="index.php?r=cart/remove&id=<?= $product->id ?>"
-                                                                  class="glyphicon glyphicon-trash"></a></td>
+                                                                  class="fa-solid fa-trash"></a></td>
 
                                     <td class="image-prod">
                                         <div class="img" style="background-image:url(<?= $product->image ?>);"></div>
                                     </td>
 
                                     <td class="product-name">
-                                        <h3><?php $s = number_format($product->price);
-                                            echo $s . ' VNĐ'; ?></h3>
+                                        <h3><?= $product->name ?></h3>
                                     </td>
 
                                     <td class="price"><?php $s = number_format($product->price);
@@ -102,7 +113,7 @@ use backend\models\Category;
                     </p>
                     <p class="d-flex">
                         <span>Delivery</span>
-                        <span>$0.00</span>
+                        <span>Free Shipping</span>
                     </p>
                     <hr>
                     <p class="d-flex total-price">
