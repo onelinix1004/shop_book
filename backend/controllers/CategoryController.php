@@ -150,12 +150,6 @@ class CategoryController extends Controller
         ]);
     }
 
-    public function actionView($id)
-    {
-        return $this->render('view', [
-            'model' => $this->findModel($id),
-        ]);
-    }
 
     /**
      * This function handles the creation of a new Category model.
