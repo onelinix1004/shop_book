@@ -135,6 +135,9 @@ use backend\models\Category;
                                 <h3 class="product-name"><a href="#"><?= $product->name ?></a></h3>
                                 <p class="price"><span><?php $s = number_format($product->price);
                                         echo 'Giá : ' . $s . ' VNĐ'; ?></span></p>
+                                <p><a href="<?= Yii::$app->urlManager->createUrl(
+                                        ['site/flipbook', 'id' => $product->id]) ?>"
+                                      class="btn btn-primary btn-outline-primary">Read Book</a></p>
                             </div>
                         </div>
                     </div>

@@ -289,7 +289,9 @@ use frontend\models\CommentForm;
                                 supplies</p>
                             <p class="price"><span><?php $s = number_format($item->price);
                                     echo 'Giá : ' . $s . ' VNĐ'; ?></span></p>
-                            <p><a href="#" class="btn btn-primary btn-outline-primary">Add to Cart</a></p>
+                            <p><a href="<?= Yii::$app->urlManager->createUrl(
+                                    ['site/flipbook', 'id' => $item->id]) ?>"
+                                  class="btn btn-primary btn-outline-primary">Read Book</a></p>
                         </div>
                     </div>
                 </div>

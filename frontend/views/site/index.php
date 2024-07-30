@@ -9,7 +9,6 @@ use common\widgets\Alert;
 use backend\models\Category;
 
 
-
 ?>
 <head>
     <title>Home</title>
@@ -264,7 +263,9 @@ use backend\models\Category;
             <div class="row">
                 <?php
                 $count = 0;
-                foreach ($products as $product):
+                foreach ($products
+
+                as $product):
                 if ($count % 4 == 0 && $count != 0): ?>
             </div>
             <div class="row">
@@ -282,7 +283,9 @@ use backend\models\Category;
                                 supplies</p>
                             <p class="price"><span><?php $s = number_format($product->price);
                                     echo 'Giá : ' . $s . ' VNĐ'; ?></span></p>
-                            <p><a href="#" class="btn btn-primary btn-outline-primary">Add to Cart</a></p>
+                            <p><a href="<?= Yii::$app->urlManager->createUrl(
+                                    ['site/flipbook', 'id' => $product->id]) ?>"
+                                  class="btn btn-primary btn-outline-primary">Read Book</a></p>
                         </div>
                     </div>
                 </div>
