@@ -55,7 +55,13 @@ class ContactController extends Controller
     }
 
     /**
-     * @inheritdoc
+     * Declares external actions for the controller.
+     *
+     * This method returns an array of external action configurations.
+     * Each array element represents the configuration for a single action.
+     * In this case, it configures the 'error' action to use the 'yii\web\ErrorAction' class.
+     *
+     * @return array The configuration array for external actions.
      */
     public function actions()
     {
@@ -65,6 +71,15 @@ class ContactController extends Controller
             ],
         ];
     }
+    
+    /**
+     * Lists all Contact models.
+     *
+     * This function initializes a search model and data provider for the Contact model,
+     * and renders the 'index' view with these models.
+     *
+     * @return mixed The rendered 'index' view with the search model and data provider.
+     */
     public function actionIndex()
     {
         $searchModel = new ContactSearch();
@@ -78,8 +93,11 @@ class ContactController extends Controller
 
     /**
      * Displays a single Contact model.
-     * @param integer $id
-     * @return mixed
+     *
+     * This function renders the 'view' view with the model corresponding to the provided ID.
+     *
+     * @param integer $id The ID of the Contact model to be displayed.
+     * @return mixed The rendered 'view' view with the Contact model.
      */
     public function actionView($id)
     {
@@ -91,34 +109,50 @@ class ContactController extends Controller
     /**
      * Creates a new Contact model.
      * If creation is successful, the browser will be redirected to the 'view' page.
+     *
      * @return mixed
+     * @throws \yii\web\BadRequestHttpException if the request method is not POST.
      */
     public function actionCreate()
     {
+        // Initialize a new Contact model
         $model = new Contact();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        } else {
-            return $this->render('create', [
-                'model' => $model,
-            ]);
+        // Check if the model is loaded with POST data
+        if ($model->load(Yii::$app->request->post())) {
+            // If the model is loaded and saved successfully, redirect to the 'view' page with the new model's ID
+            if ($model->save()) {
+                return $this->redirect(['view', 'id' => $model->id]);
+            }
         }
+
+        // If the model is not loaded or not saved, render the 'create' view with the model
+        return $this->render('create', [
+            'model' => $model,
+        ]);
     }
 
     /**
      * Updates an existing Contact model.
      * If update is successful, the browser will be redirected to the 'view' page.
-     * @param integer $id
+     *
+     * @param integer $id The ID of the Contact model to be updated.
      * @return mixed
+     * @throws \yii\web\BadRequestHttpException if the request method is not POST.
      */
     public function actionUpdate($id)
     {
+        // Find the Contact model based on the provided ID
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        // Check if the model is loaded with POST data
+        if ($model->load(Yii::$app->request->post())) {
+            // If the model is loaded and saved successfully, redirect to the 'view' page with the updated model's ID
+            if ($model->save()) {
+                return $this->redirect(['view', 'id' => $model->id]);
+            }
         } else {
+            // If the model is not loaded or not saved, render the 'update' view with the model
             return $this->render('update', [
                 'model' => $model,
             ]);
