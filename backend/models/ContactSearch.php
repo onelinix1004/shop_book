@@ -13,7 +13,9 @@ use backend\models\Contact;
 class ContactSearch extends Contact
 {
     /**
-     * @inheritdoc
+     * This function defines the validation rules for the model attributes.
+     *
+     * @return array the validation rules.
      */
     public function rules()
     {
@@ -24,20 +26,30 @@ class ContactSearch extends Contact
     }
 
     /**
-     * @inheritdoc
+     * This function returns the scenarios for the model.
+     *
+     * The default implementation returns the scenarios based on the definition of the rules.
+     *
+     * @return array an array of scenario names indexed by the scenario names.
+     *
+     * @see scenarios()
      */
     public function scenarios()
-{
-    return parent::scenarios();
-}
+    {
+        return parent::scenarios();
+    }
 
 
     /**
-     * Creates data provider instance with search query applied
+     * Creates data provider instance with search query applied.
      *
-     * @param array $params
+     * @param array $params The parameters for the search query.
      *
-     * @return ActiveDataProvider
+     * @return ActiveDataProvider The data provider instance with search query applied.
+     *
+     * The function takes an array of parameters and creates an ActiveDataProvider instance.
+     * It applies search conditions to the query based on the provided parameters.
+     * If the validation fails, it returns the data provider instance without applying any conditions.
      */
     public function search($params)
     {

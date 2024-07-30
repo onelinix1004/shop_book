@@ -13,7 +13,9 @@ use backend\models\Orders;
 class OrdersSearch extends Orders
 {
     /**
-     * @inheritdoc
+     * This function defines the validation rules for the Orders model attributes.
+     *
+     * @return array the validation rules.
      */
     public function rules()
     {
@@ -24,26 +26,30 @@ class OrdersSearch extends Orders
     }
 
     /**
-     * @inheritdoc
+     * This function returns the scenarios for the Orders model.
+     * It overrides the parent implementation by returning the scenarios based on the model attributes.
+     *
+     * @return array the scenarios.
      */
     public function scenarios()
-{
-    return parent::scenarios();
-}
+    {
+        return parent::scenarios();
+    }
 
 
     /**
-     * Creates data provider instance with search query applied
+     * This function performs a search operation on the Orders model based on the provided parameters.
+     * It creates an ActiveDataProvider with a search query applied to filter the orders.
      *
-     * @param array $params
+     * @param array $params The parameters for the search operation.
      *
-     * @return ActiveDataProvider
+     * @return ActiveDataProvider The data provider with the search results.
      */
     public function search($params)
     {
         $query = Orders::find();
 
-        // add conditions that should always apply here
+        // Add conditions that should always apply here
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
@@ -52,12 +58,12 @@ class OrdersSearch extends Orders
         $this->load($params);
 
         if (!$this->validate()) {
-            // uncomment the following line if you do not want to return any records when validation fails
+            // Uncomment the following line if you do not want to return any records when validation fails
             // $query->where('0=1');
             return $dataProvider;
         }
 
-        // grid filtering conditions
+        // Grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
             'user_id' => $this->user_id,

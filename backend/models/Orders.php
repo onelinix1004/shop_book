@@ -23,7 +23,9 @@ use Yii;
 class Orders extends \yii\db\ActiveRecord
 {
     /**
-     * @inheritdoc
+     * Returns the table name associated with this ActiveRecord class.
+     *
+     * @return string the table name of the database table associated with this ActiveRecord class.
      */
     public static function tableName()
     {
@@ -31,7 +33,9 @@ class Orders extends \yii\db\ActiveRecord
     }
 
     /**
-     * @inheritdoc
+     * This function returns the validation rules for the model attributes.
+     *
+     * @return array the validation rules.
      */
     public function rules()
     {
@@ -46,7 +50,11 @@ class Orders extends \yii\db\ActiveRecord
     }
 
     /**
-     * @inheritdoc
+     * This function returns the labels for the attributes of the model.
+     *
+     * The labels are mainly used in form field generation and display in views.
+     *
+     * @return array the attribute labels (name => label)
      */
     public function attributeLabels()
     {
@@ -65,7 +73,12 @@ class Orders extends \yii\db\ActiveRecord
     }
 
     /**
-     * @return \yii\db\ActiveQuery
+     * This function returns a query for the related User model.
+     *
+     * The function uses the `hasOne` method to establish a one-to-one relationship between the Orders model and the User model.
+     * The relationship is defined by the 'user_id' attribute in the Orders model and the 'id' attribute in the User model.
+     *
+     * @return \yii\db\ActiveQuery the query for the related User model.
      */
     public function getUser()
     {
@@ -73,7 +86,12 @@ class Orders extends \yii\db\ActiveRecord
     }
 
     /**
-     * @return \yii\db\ActiveQuery
+     * This function returns a query for the related OrdersItem model.
+     *
+     * The function uses the `hasMany` method to establish a one-to-many relationship between the Orders model and the OrdersItem model.
+     * The relationship is defined by the 'orders_id' attribute in the OrdersItem model and the 'id' attribute in the Orders model.
+     *
+     * @return \yii\db\ActiveQuery the query for the related OrdersItem model.
      */
     public function getOrdersItems()
     {

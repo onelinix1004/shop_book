@@ -13,7 +13,9 @@ use backend\models\Product;
 class ProductSearch extends Product
 {
     /**
-     * @inheritdoc
+     * This function defines the validation rules for the ProductSearch model.
+     *
+     * @return array the validation rules.
      */
     public function rules()
     {
@@ -25,7 +27,13 @@ class ProductSearch extends Product
     }
 
     /**
+     * This function returns the scenarios for the model.
+     *
+     * @return array the scenarios.
+     *
      * @inheritdoc
+     *
+     * @see \yii\base\Model::scenarios()
      */
     public function scenarios()
     {

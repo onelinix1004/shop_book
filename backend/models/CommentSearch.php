@@ -12,33 +12,43 @@ use yii\data\ActiveDataProvider;
 class CommentSearch extends Comment
 {
     /**
-     * {@inheritdoc}
+     * This function defines the validation rules for the CommentSearch model.
+     *
+     * @return array the validation rules.
      */
     public function rules()
     {
         return [
+            // 'id', 'product_id', 'user_id', and 'created_at' fields should be integers.
             [['id', 'product_id', 'user_id', 'created_at'], 'integer'],
+
+            // 'content' field should be safe (not validated).
             [['content'], 'safe'],
         ];
     }
-    
+
 
     /**
-     * {@inheritdoc}
+     * This function defines the scenarios for the CommentSearch model.
+     * It overrides the scenarios() function in the parent class (yii\base\Model).
+     *
+     * @return array The scenarios for the CommentSearch model.
+     *
+     * @inheritdoc
      */
     public function scenarios()
     {
-    // Bỏ qua việc triển khai của scenarios() trong lớp cha
+        // Call the parent's scenarios() function to get the default scenarios
         return parent::scenarios();
     }
 
 
     /**
-     * Creates data provider instance with search query applied
+     * Creates data provider instance with search query applied.
      *
-     * @param array $params
+     * @param array $params The parameters for the search query.
      *
-     * @return ActiveDataProvider
+     * @return ActiveDataProvider The data provider instance with search query applied.
      */
     public function search($params)
     {

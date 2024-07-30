@@ -13,7 +13,9 @@ use backend\models\Category;
 class CategorySearch extends Category
 {
     /**
-     * @inheritdoc
+     * This function defines the validation rules for the Category model attributes.
+     *
+     * @return array the validation rules.
      */
     public function rules()
     {
@@ -24,20 +26,27 @@ class CategorySearch extends Category
     }
 
     /**
+     * This function returns the scenarios for the Category model.
+     *
+     * @return array the scenarios.
+     *
      * @inheritdoc
+     *
+     * @see \yii\base\Model::scenarios()
      */
     public function scenarios()
-{
-    return parent::scenarios();
-}
+    {
+        return parent::scenarios();
+    }
 
 
     /**
-     * Creates data provider instance with search query applied
+     * This function performs a search operation on the Category model based on the provided parameters.
+     * It returns an ActiveDataProvider instance with the search query applied.
      *
-     * @param array $params
+     * @param array $params The search parameters.
      *
-     * @return ActiveDataProvider
+     * @return ActiveDataProvider The data provider instance with the search query applied.
      */
     public function search($params)
     {

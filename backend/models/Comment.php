@@ -19,7 +19,9 @@ use Yii;
 class Comment extends \yii\db\ActiveRecord
 {
     /**
-     * {@inheritdoc}
+     * Returns the table name associated with this ActiveRecord class.
+     *
+     * @return string the table name of the database table associated with this ActiveRecord class.
      */
     public static function tableName()
     {
@@ -27,7 +29,9 @@ class Comment extends \yii\db\ActiveRecord
     }
 
     /**
-     * {@inheritdoc}
+     * This function returns the validation rules for the model attributes.
+     *
+     * @return array the validation rules.
      */
     public function rules()
     {
@@ -41,7 +45,11 @@ class Comment extends \yii\db\ActiveRecord
     }
 
     /**
-     * {@inheritdoc}
+     * Returns the labels for the attributes of this model.
+     *
+     * The labels are mainly used in error messages of validation.
+     *
+     * @return array the attribute labels (name => label)
      */
     public function attributeLabels()
     {
@@ -57,7 +65,12 @@ class Comment extends \yii\db\ActiveRecord
     /**
      * Gets query for [[Product]].
      *
+     * This function returns an ActiveQuery object that can be used to query related records
+     * in the database table 'product'. The relationship is defined in the 'product_id' attribute
+     * of the current model.
+     *
      * @return \yii\db\ActiveQuery
+     * @property Product $product The related 'Product' model.
      */
     public function getProduct()
     {
@@ -67,10 +80,15 @@ class Comment extends \yii\db\ActiveRecord
     /**
      * Gets query for [[User]].
      *
+     * This function returns an ActiveQuery object that can be used to query related records
+     * in the database table 'user'. The relationship is defined in the 'user_id' attribute
+     * of the current model.
+     *
      * @return \yii\db\ActiveQuery
+     * @property User $user The related 'User' model.
      */
     public function getUser()
-{
-    return $this->hasOne(User::class, ['id' => 'user_id']);
-}
+    {
+        return $this->hasOne('User', ['id' => 'user_id']);
+    }
 }
