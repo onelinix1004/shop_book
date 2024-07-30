@@ -103,6 +103,7 @@ use backend\models\Category;
                         <li class="ftco-animate"><a href="#"><span class="fab fa-dribbble"></span></a></li>
                         <li class="ftco-animate"><a href="#"><span class="fab fa-facebook-square"></span></a></li>
                         <li class="ftco-animate"><a href="#"><span class="fab fa-instagram"></span></a></li>
+                        <li class="ftco-animate"><a href="#"><span class="fab fa-tiktok"></span></a></li>
                     </ul>
                 </div>
             </div>

@@ -55,7 +55,7 @@
             <div class="col-md-4 ftco-animate">
                 <div class="media d-block text-center block-6 services">
                     <div class="icon d-flex justify-content-center align-items-center mb-5">
-                        <span class="flaticon-coffee-bean"></span></div>
+                        <span class="fa-solid fa-check"></span></div>
                     <div class="media-body">
                         <h3 class="heading">Quality Book</h3>
                         <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
@@ -80,6 +80,58 @@
         </div>
     </div>
 </section>
+
+
+<section class="ftco-counter ftco-bg-dark img" id="section-counter"
+         style="background-image: url(asset/images/pexels-joshsorenson-990432.jpg);"
+         data-stellar-background-ratio="0.5">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <div class="row">
+                    <div class="col-md-6 col-lg-3 d-flex justify-content-center counter-wrap ftco-animate">
+                        <div class="block-18 text-center">
+                            <div class="text">
+                                <div class="icon"><span class="fa-brands fa-atlassian"></span></div>
+                                <strong class="number" data-number="100">0</strong>
+                                <span>Book Branches</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 d-flex justify-content-center counter-wrap ftco-animate">
+                        <div class="block-18 text-center">
+                            <div class="text">
+                                <div class="icon"><span class="fa-brands fa-atlassian"></span></div>
+                                <strong class="number" data-number="85">0</strong>
+                                <span>Number of Awards</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 d-flex justify-content-center counter-wrap ftco-animate">
+                        <div class="block-18 text-center">
+                            <div class="text">
+                                <div class="icon"><span class="fa-brands fa-atlassian"></span></div>
+                                <strong class="number" data-number="10567">0</strong>
+                                <span>Happy Customer</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 d-flex justify-content-center counter-wrap ftco-animate">
+                        <div class="block-18 text-center">
+                            <div class="text">
+                                <div class="icon"><span class="fa-brands fa-atlassian"></span></div>
+                                <strong class="number" data-number="900">0</strong>
+                                <span>Staff</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 
 <section class="ftco-section img" id="ftco-testimony" style="background-image: url(asset/images/pexels-cottonbro-4861377.jpg);"  data-stellar-background-ratio="0.5">
     <div class="overlay"></div>

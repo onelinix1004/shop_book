@@ -30,8 +30,9 @@ $countContact = backend\models\Contact::find()->count();
                 <div class="card-footer ">
                     <hr>
                     <div class="stats">
-                        <i class="fa fa-refresh"></i>
-                        Update Now
+                        <i class="fa fa-refresh">
+                        </i>
+                        <a href="index.php?r=user">Quản lý thành viên</a>
                     </div>
                 </div>
             </div>
@@ -56,8 +57,8 @@ $countContact = backend\models\Contact::find()->count();
                 <div class="card-footer ">
                     <hr>
                     <div class="stats">
-                        <i class="fa fa-refresh"></i>
-                        Update Now
+                        <i class="fa-regular fa-calendar"></i>
+                        <a href="index.php?r=orders">Xem đơn hàng</a>
                     </div>
                 </div>
             </div>
@@ -82,8 +83,8 @@ $countContact = backend\models\Contact::find()->count();
                 <div class="card-footer ">
                     <hr>
                     <div class="stats">
-                        <i class="fa fa-refresh"></i>
-                        Update Now
+                        <i class="fa-solid fa-plus"></i>
+                        <a href="index.php?r=product/create">Thêm sách</a>
                     </div>
                 </div>
             </div>
@@ -108,8 +109,8 @@ $countContact = backend\models\Contact::find()->count();
                 <div class="card-footer ">
                     <hr>
                     <div class="stats">
-                        <i class="fa fa-refresh"></i>
-                        Update now
+                        <i class="fa-solid fa-phone"></i>
+                        <a href="">Quản lý</a>
                     </div>
                 </div>
             </div>
@@ -119,7 +120,7 @@ $countContact = backend\models\Contact::find()->count();
         <div class="col-md-12">
             <div class="card ">
                 <div class="card-header ">
-                    <h5 class="card-title">Users Behavior</h5>
+                    <h5 class="card-title">Revenue</h5>
                 </div>
                 <div class="card-body ">
                     <canvas id=myChart width="400" height="100"></canvas>

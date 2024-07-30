@@ -285,7 +285,9 @@ use backend\models\Category;
                                     echo 'Giá : ' . $s . ' VNĐ'; ?></span></p>
                             <p><a href="<?= Yii::$app->urlManager->createUrl(
                                     ['site/flipbook', 'id' => $product->id]) ?>"
-                                  class="btn btn-primary btn-outline-primary">Read Book</a></p>
+                                  class="btn btn-primary btn-outline-primary">Read Book</a>
+                            </p>
+                            <button class="btn btn-primary btn-outline-primary">Add to cart</button>
                         </div>
                     </div>
                 </div>
