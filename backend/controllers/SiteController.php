@@ -19,7 +19,9 @@ use backend\models\Product;
 class SiteController extends Controller
 {
     /**
-     * {@inheritdoc}
+     * Configures the behaviors for the controller.
+     *
+     * @return array The behaviors configuration.
      */
     public function behaviors()
     {
@@ -48,7 +50,12 @@ class SiteController extends Controller
     }
 
     /**
-     * {@inheritdoc}
+     * This function returns an array of action configurations for the controller.
+     *
+     * The 'error' action is defined to handle exceptions and display error pages.
+     * It uses the 'yii\web\ErrorAction' class to handle the error action.
+     *
+     * @return array The action configurations.
      */
     public function actions()
     {
@@ -60,21 +67,24 @@ class SiteController extends Controller
     }
 
     /**
-     * Displays homepage.
+     * Displays the backend homepage.
      *
-     * @return string
+     * This function retrieves and processes data for various charts and tables on the homepage.
+     * It includes data for earnings, category sales, recent orders, best-rated products, and most viewed products.
+     *
+     * @return string The rendered homepage view with the processed data.
      */
     public function actionIndex()
     {
         // Line chart data for earnings
         $orders = OrdersItem::findBySql("
-            SELECT
-                CAST(DATE_FORMAT(FROM_UNIXTIME(o.created_at), '%Y-%m-%d %H:%i:%s') as DATE) as date,
-                SUM(o.price) as total_price
-            FROM orders_item o
-            GROUP BY date
-            ORDER BY date
-        ")
+        SELECT
+            CAST(DATE_FORMAT(FROM_UNIXTIME(o.created_at), '%Y-%m-%d %H:%i:%s') as DATE) as date,
+            SUM(o.price) as total_price
+        FROM orders_item o
+        GROUP BY date
+        ORDER BY date
+    ")
             ->asArray()
             ->all();
 
@@ -86,7 +96,7 @@ class SiteController extends Controller
             $earningsData[] = $order['total_price'];
         }
 
-
+        // Pie chart data for category sales
         $categoryData = OrdersItem::find()
             ->select(['category.name', 'SUM(orders_item.price) AS total'])
             ->innerJoin('product', 'orders_item.product_id = product.id')
@@ -96,8 +106,7 @@ class SiteController extends Controller
             ->asArray()
             ->all();
 
-        $categoryLabels = Category::find()->select('name')->column(); // Trích xuất mảng tên category từ đối tượng Category
-
+        $categoryLabels = Category::find()->select('name')->column(); // Extract array of category names from Category model
 
         $colorCount = count($categoryLabels);
         $bgColors = [];
@@ -105,13 +114,14 @@ class SiteController extends Controller
             $bgColors[] = 'hsl(' . (360 / $colorCount * $i) . ', 70%, 50%)';
         }
 
+        // Recent orders data
         $orders = Orders::find()
             ->orderBy(['updated_at' => SORT_DESC])
             ->limit(5)
             ->asArray()
             ->all();
 
-        // Best rating products
+        // Best-rated products data
         $bestRatingProducts = Product::find()
             ->select(['p.name','p.image' ,'AVG(r.rating) AS avg_rating'])
             ->from('product p')
@@ -122,7 +132,7 @@ class SiteController extends Controller
             ->asArray()
             ->all();
 
-        // Most viewed products
+        // Most viewed products data
         $bestViewProducts = Product::find()
             ->select(['p.id', 'p.name', 'SUM(v.count) AS total_views'])
             ->from('product p')
@@ -147,9 +157,15 @@ class SiteController extends Controller
     }
 
     /**
-     * Login action.
+     * Displays the login page for the backend application.
      *
-     * @return string
+     * This function handles the login process for the backend application.
+     * It sets the layout to 'login' and checks if the user is already logged in.
+     * If the user is not logged in, it creates a new LoginForm model and attempts to load and validate the form data.
+     * If the form data is valid and the user is successfully logged in, it redirects to the backend homepage.
+     * Otherwise, it renders the login view with the LoginForm model.
+     *
+     * @return string The rendered login view or the redirect response.
      */
     public function actionLogin()
     {
@@ -171,9 +187,12 @@ class SiteController extends Controller
 
 
     /**
-     * Logout action.
+     * Performs the logout action for the backend application.
      *
-     * @return string
+     * This function logs out the current user by calling the logout method on the Yii::$app->user component.
+     * After the user is logged out, it redirects the user to the homepage using the goHome method.
+     *
+     * @return string The redirect response to the homepage.
      */
     public function actionLogout()
     {
