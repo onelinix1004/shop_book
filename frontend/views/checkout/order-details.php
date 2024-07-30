@@ -164,7 +164,7 @@
                                 <h3><?= $orderItem->product->name ?></h3>
                             </td>
 
-                            <td class="price"><?= $orderItem->price ?></td>
+                            <td class="price"><?= $orderItem->product->price ?></td>
 
                             <td class="price"><?= $orderItem->quantity ?></td>
 
