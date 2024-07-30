@@ -86,7 +86,7 @@ class SiteController extends Controller
             $earningsData[] = $order['total_price'];
         }
 
-        // Category data for bar chart
+
         $categoryData = OrdersItem::find()
             ->select(['category.name', 'SUM(orders_item.price) AS total'])
             ->innerJoin('product', 'orders_item.product_id = product.id')
@@ -96,18 +96,18 @@ class SiteController extends Controller
             ->asArray()
             ->all();
 
-        $categoryLabels = Category::find()->select('name')->column(); // Extract category names from Category objects
+        $categoryLabels = Category::find()->select('name')->column(); // Trích xuất mảng tên category từ đối tượng Category
 
-        // Generate background colors for categories
+
         $colorCount = count($categoryLabels);
         $bgColors = [];
-        for ($i = 0; $i < $colorCount; $i++) {
+        for ($i = 1; $i <= $colorCount; $i++) {
             $bgColors[] = 'hsl(' . (360 / $colorCount * $i) . ', 70%, 50%)';
         }
 
         // Best rating products
         $bestRatingProducts = Product::find()
-            ->select(['p.name', 'AVG(r.rating) AS avg_rating'])
+            ->select(['p.name','p.image' ,'AVG(r.rating) AS avg_rating'])
             ->from('product p')
             ->innerJoin('reviews r', 'p.id = r.product_id')
             ->groupBy('p.id')
