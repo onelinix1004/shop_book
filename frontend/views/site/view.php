@@ -115,134 +115,140 @@ use frontend\models\CommentForm;
             <h2 class="mb-4">Review Book</h2>
         </div>
 
-        <div class="box_1" style="width: 100%; max-width: 800px;">
-            <h5 style="font-size: 20px; font-weight: 800;">OVERALL</h5>
-            <h5 style="font-size: 35px;"><?= $averageRating ?></h5>
-            <div class="start-container">
-                <?php if (is_numeric($averageRating)): ?>
-                    <?php $integerPart = floor($averageRating); ?>
-                    <?php $decimalPart = $averageRating - $integerPart; ?>
-                    <div class="stars">
-                        <?php for ($i = 1; $i <= 5; $i++): ?>
-                            <?php if ($i <= $integerPart): ?>
-                                <span class="fa-solid fa-star"
-                                      style="font-size: 24px; color: gold; margin: 0 0.2rem;"></span>
-                            <?php elseif ($i == $integerPart + 1 && $decimalPart > 0): ?>
-                                <span class="fa-solid fa-star-half"
-                                      style="font-size: 24px; color: gold; margin: 0 0.2rem;"></span>
-                            <?php else: ?>
-                                <span class="fa-solid fa-star"
-                                      style="font-size: 24px; color: gray; margin: 0 0.2rem;"></span>
-                            <?php endif; ?>
-                        <?php endfor; ?>
+        <div class="content-wrapper" style="display: flex; justify-content: space-between; width: 100%; max-width: 1200px;">
+            <!-- Rating Section -->
+            <div class="rating-section" style="flex: 1; margin-right: 20px;">
+                <div class="box_1" style="width: 100%; max-width: 100%;">
+                    <h5 style="font-size: 20px; font-weight: 800;">OVERALL</h5>
+                    <h5 style="font-size: 35px;"><?= $averageRating ?></h5>
+                    <div class="start-container">
+                        <?php if (is_numeric($averageRating)): ?>
+                            <?php $integerPart = floor($averageRating); ?>
+                            <?php $decimalPart = $averageRating - $integerPart; ?>
+                            <div class="stars">
+                                <?php for ($i = 1; $i <= 5; $i++): ?>
+                                    <?php if ($i <= $integerPart): ?>
+                                        <span class="fa-solid fa-star" style="font-size: 24px; color: gold; margin: 0 0.2rem;"></span>
+                                    <?php elseif ($i == $integerPart + 1 && $decimalPart > 0): ?>
+                                        <span class="fa-solid fa-star-half" style="font-size: 24px; color: gold; margin: 0 0.2rem;"></span>
+                                    <?php else: ?>
+                                        <span class="fa-solid fa-star" style="font-size: 24px; color: gray; margin: 0 0.2rem;"></span>
+                                    <?php endif; ?>
+                                <?php endfor; ?>
+                            </div>
+                        <?php else: ?>
+                            <p>No rating yet.</p>
+                        <?php endif; ?>
                     </div>
-                <?php else: ?>
-                    <p>No rating yet.</p>
-                <?php endif; ?>
-            </div>
 
-            <style>
-                .start-container {
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                }
+                    <style>
+                        .start-container {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                        }
 
-                .stars {
-                    display: flex;
-                    align-items: center;
-                }
-            </style>
+                        .stars {
+                            display: flex;
+                            align-items: center;
+                        }
+                    </style>
+                </div>
 
-        </div>
+                <div>
+                    <?php $form = ActiveForm::begin(['id' => 'review-form']); ?>
+                    <h3 style="margin-top: 20px; margin-bottom: 15px;">Chọn đánh giá của bạn</h3>
+                    <div class="rating">
+                        <span class="fa-solid fa-star" id="star1" style="font-size: 24px; color: gray;" data-index="1"></span>
+                        <span class="fa-solid fa-star" id="star2" style="font-size: 24px; color: gray;" data-index="2"></span>
+                        <span class="fa-solid fa-star" id="star3" style="font-size: 24px; color: gray;" data-index="3"></span>
+                        <span class="fa-solid fa-star" id="star4" style="font-size: 24px; color: gray;" data-index="4"></span>
+                        <span class="fa-solid fa-star" id="star5" style="font-size: 24px; color: gray;" data-index="5"></span>
+                    </div>
+                    <div style="text-align: left;">
+                        <?= $form->field($reviewModel, 'rating')->hiddenInput(['id' => 'rating-input'])->label(false) ?>
+                        <?= $form->field($reviewModel, 'comment')->textarea(['rows' => 2]) ?>
+                    </div>
+                    <div class="form-group">
+                        <?= Html::submitButton('Post Review', ['class' => 'btn btn-success']) ?>
+                    </div>
+                    <?php ActiveForm::end(); ?>
+                </div>
 
-        <div>
-            <?php $form = ActiveForm::begin(['id' => 'review-form']); ?>
-            <h3 style="margin-top: 20px; margin-bottom: 15px;">Chọn đánh giá của bạn</h3>
-            <div class="rating">
-                <span class="fa-solid fa-star" id="star1" style="font-size: 24px; color: gray;" data-index="1"></span>
-                <span class="fa-solid fa-star" id="star2" style="font-size: 24px; color: gray;" data-index="2"></span>
-                <span class="fa-solid fa-star" id="star3" style="font-size: 24px; color: gray;" data-index="3"></span>
-                <span class="fa-solid fa-star" id="star4" style="font-size: 24px; color: gray;" data-index="4"></span>
-                <span class="fa-solid fa-star" id="star5" style="font-size: 24px; color: gray;" data-index="5"></span>
-            </div>
-            <?= $form->field($reviewModel, 'rating')->hiddenInput(['id' => 'rating-input'])->label(false) ?>
-            <?= $form->field($reviewModel, 'comment')->textarea(['rows' => 2]) ?>
-            <div class="form-group">
-                <?= Html::submitButton('Post Review', ['class' => 'btn btn-success']) ?>
-            </div>
-            <?php ActiveForm::end(); ?>
-        </div>
+                <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                <script>
+                    $(document).ready(function () {
+                        // Handle click events
+                        $('.rating .fa-solid').on('click', function () {
+                            let rating = $(this).data('index');
+                            setRating(rating);
+                        });
 
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script>
-            $(document).ready(function () {
-                // Handle click events
-                $('.rating .fa-solid').on('click', function () {
-                    let rating = $(this).data('index');
-                    setRating(rating);
-                });
+                        // Handle hover events
+                        $('.rating .fa-solid').hover(function () {
+                            let index = $(this).data('index');
+                            highlightStars(index);
+                        }, function () {
+                            // Revert stars to their original color
+                            let currentRating = $('#rating-input').val();
+                            highlightStars(currentRating);
+                        });
 
-                // Handle hover events
-                $('.rating .fa-solid').hover(function () {
-                    let index = $(this).data('index');
-                    highlightStars(index);
-                }, function () {
-                    // Revert stars to their original color
-                    let currentRating = $('#rating-input').val();
-                    highlightStars(currentRating);
-                });
+                        // Set the rating in the hidden input and update star colors
+                        function setRating(rating) {
+                            $('#rating-input').val(rating);
+                            highlightStars(rating);
+                        }
 
-                // Set the rating in the hidden input and update star colors
-                function setRating(rating) {
-                    $('#rating-input').val(rating);
-                    highlightStars(rating);
-                }
-
-                // Highlight stars based on the rating
-                function highlightStars(rating) {
-                    $('.rating .fa-solid').each(function () {
-                        let index = $(this).data('index');
-                        if (index <= rating) {
-                            $(this).css('color', 'gold');
-                        } else {
-                            $(this).css('color', 'gray');
+                        // Highlight stars based on the rating
+                        function highlightStars(rating) {
+                            $('.rating .fa-solid').each(function () {
+                                let index = $(this).data('index');
+                                if (index <= rating) {
+                                    $(this).css('color', 'gold');
+                                } else {
+                                    $(this).css('color', 'gray');
+                                }
+                            });
                         }
                     });
-                }
-            });
-        </script>
+                </script>
+            </div>
 
-
-        <div class="review_list">
-            <?php foreach ($reviews as $review): ?>
-                <div class="review"
-                     style="display: flex; border-opacity: 0.5; width: 100%; max-width: 800px; margin: 0 auto;">
-                    <div class="box1" style="flex-grow: 1/3;">
-                        <span style="font-size: 18px;"><?= Html::encode($review->user->username) ?></span>
-                        <br>
-                        <span style="font-size: 18px;"><?= Yii::$app->formatter->asDatetime($review->created_at) ?></span>
-                    </div>
-                    <div class="box2" style="flex-grow: 2/3;">
-                        <div class="product-rating-content">
-                            <?php for ($i = 1; $i <= 5; $i++): ?>
-                                <?php if ($i <= $review->rating): ?>
-                                    <span class="fa-solid fa-star" style="font-size: 24px; color: gold;"></span>
-                                <?php else: ?>
-                                    <span class="fa-solid fa-star" style="font-size: 24px; color: gray;"></span>
-                                <?php endif; ?>
-                            <?php endfor; ?>
+            <!-- Review List Section -->
+            <div class="review-section" style="flex: 1; margin-left: 20px;">
+                <div class="review_list">
+                    <?php foreach ($reviews as $review): ?>
+                        <div class="review" style="display: flex; border-opacity: 0.5; width: 100%; max-width: 100%; margin: 0 auto;">
+                            <div class="box1" style="flex-grow: 1/3;">
+                                <span style="font-size: 18px;">
+                                    <i class="fa-solid fa-user" style="color: #74C0FC;"></i> <?= Html::encode($review->user->username) ?>
+                                </span>
+                                <br>
+                                <span style="font-size: 18px;"><?= Yii::$app->formatter->asDatetime($review->created_at) ?></span>
+                            </div>
+                            <div class="box2" style="flex-grow: 2/3;">
+                                <div class="product-rating-content">
+                                    <?php for ($i = 1; $i <= 5; $i++): ?>
+                                        <?php if ($i <= $review->rating): ?>
+                                            <span class="fa-solid fa-star" style="font-size: 24px; color: gold;"></span>
+                                        <?php else: ?>
+                                            <span class="fa-solid fa-star" style="font-size: 24px; color: gray;"></span>
+                                        <?php endif; ?>
+                                    <?php endfor; ?>
+                                </div>
+                                <div class="review-content">
+                                    <span style="font-size: 18px;"><?= Html::encode($review->comment) ?></span>
+                                </div>
+                            </div>
                         </div>
-                        <div class="review-content">
-                            <span style="font-size: 18px;"><?= Html::encode($review->comment) ?></span>
-                        </div>
-                    </div>
+                    <?php endforeach; ?>
                 </div>
-            <?php endforeach; ?>
+            </div>
         </div>
     </div>
-    </div>
 </section>
+
 
 
 <!-- shop-page -->
