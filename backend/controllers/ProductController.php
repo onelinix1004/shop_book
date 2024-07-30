@@ -22,7 +22,7 @@ class ProductController extends Controller
     /**
      * @inheritdoc
      */
-     public function behaviors()
+    public function behaviors()
     {
         return [
             'access' => [
@@ -33,15 +33,21 @@ class ProductController extends Controller
                         'allow' => true,
                     ],
                     [
-                        'allow'=>true,
-                        'roles'=>['@'],
+                        'allow' => true,
+                        'roles' => ['@'],
+                        'matchCallback' => function ($rule,$action){
+                            if (Yii::$app->user->can('admin')){
+                                return true;
+                            }
+
+                        }
                     ],
                 ],
             ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
-                    'logout' => ['post','get'],
+                    'logout' => ['post', 'get'],
                 ],
             ],
         ];
@@ -58,11 +64,11 @@ class ProductController extends Controller
             ],
         ];
     }
+
     /**
      * Lists all Product models.
      * @return mixed
      */
-
 
 
     public function actionIndex()
@@ -95,73 +101,72 @@ class ProductController extends Controller
      */
 
 
+    public function actionCreate()
+    {
+        $model = new Product();
 
-     public function actionCreate()
-     {
-         $model = new Product();
- 
-         if ($model->load(Yii::$app->request->post())) {
-             $model->file = UploadedFile::getInstance($model, 'file');
-             $model->pdfFile = UploadedFile::getInstance($model, 'pdfFile'); // Thêm phần này để xử lý tệp PDF
- 
-             if ($model->file) {
-                 $imageName = 'product' . rand(1, 100000);
-                 $model->file->saveAs(Yii::getAlias('@frontend/web/upload/') . $imageName . '.' . $model->file->extension);
-                 $model->image = 'upload/' . $imageName . '.' . $model->file->extension;
-             }
- 
-             if ($model->pdfFile) {
+        if ($model->load(Yii::$app->request->post())) {
+            $model->file = UploadedFile::getInstance($model, 'file');
+            $model->pdfFile = UploadedFile::getInstance($model, 'pdfFile'); // Thêm phần này để xử lý tệp PDF
+
+            if ($model->file) {
+                $imageName = 'product' . rand(1, 100000);
+                $model->file->saveAs(Yii::getAlias('@frontend/web/upload/') . $imageName . '.' . $model->file->extension);
+                $model->image = 'upload/' . $imageName . '.' . $model->file->extension;
+            }
+
+            if ($model->pdfFile) {
                 $pdfName = 'pdf' . rand(1, 100000);
                 $model->pdfFile->saveAs(Yii::getAlias('@frontend/web/pdf/') . $pdfName . '.' . $model->pdfFile->extension);
                 $model->pdf = '/pdf/' . $pdfName . '.' . $model->pdfFile->extension;
             }
- 
-             $model->created_at = time();
-             $model->updated_at = time();
- 
-             if ($model->save(false)) {
-                 Yii::$app->session->setFlash('success', 'Đã thêm thành công ' . $model->name . '!');
-                 return $this->redirect(['index']);
-             } else {
-                 Yii::$app->session->setFlash('error', 'Lỗi khi lưu sản phẩm!');
-             }
-         }
- 
-         return $this->render('create', ['model' => $model]);
-     }
- 
-     public function actionUpdate($id)
-     {
-         $model = $this->findModel($id);
- 
-         if ($model->load(Yii::$app->request->post())) {
-             $model->file = UploadedFile::getInstance($model, 'file');
-             $model->pdfFile = UploadedFile::getInstance($model, 'pdfFile'); // Thêm phần này để xử lý tệp PDF
- 
-             if ($model->file) {
-                 $imageName = 'product' . rand(1, 100000);
-                 $model->file->saveAs('upload/' . $imageName . '.' . $model->file->extension);
-                 $model->image = 'upload/' . $imageName . '.' . $model->file->extension;
-             }
- 
-             if ($model->pdfFile) {
+
+            $model->created_at = time();
+            $model->updated_at = time();
+
+            if ($model->save(false)) {
+                Yii::$app->session->setFlash('success', 'Đã thêm thành công ' . $model->name . '!');
+                return $this->redirect(['index']);
+            } else {
+                Yii::$app->session->setFlash('error', 'Lỗi khi lưu sản phẩm!');
+            }
+        }
+
+        return $this->render('create', ['model' => $model]);
+    }
+
+    public function actionUpdate($id)
+    {
+        $model = $this->findModel($id);
+
+        if ($model->load(Yii::$app->request->post())) {
+            $model->file = UploadedFile::getInstance($model, 'file');
+            $model->pdfFile = UploadedFile::getInstance($model, 'pdfFile'); // Thêm phần này để xử lý tệp PDF
+
+            if ($model->file) {
+                $imageName = 'product' . rand(1, 100000);
+                $model->file->saveAs('upload/' . $imageName . '.' . $model->file->extension);
+                $model->image = 'upload/' . $imageName . '.' . $model->file->extension;
+            }
+
+            if ($model->pdfFile) {
                 $pdfName = 'pdf' . rand(1, 100000);
                 $model->pdfFile->saveAs(Yii::getAlias('@frontend/web/pdf/') . $pdfName . '.' . $model->pdfFile->extension);
                 $model->pdf = '/pdf/' . $pdfName . '.' . $model->pdfFile->extension;
             }
- 
-             $model->updated_at = time();
- 
-             if ($model->save(false)) {
-                 Yii::$app->session->setFlash('success', 'Đã cập nhật thành công ' . $model->name . '!');
-                 return $this->redirect(['view', 'id' => $model->id]);
-             } else {
-                 Yii::$app->session->setFlash('error', 'Lỗi khi cập nhật sản phẩm!');
-             }
-         }
- 
-         return $this->render('update', ['model' => $model]);
-     }
+
+            $model->updated_at = time();
+
+            if ($model->save(false)) {
+                Yii::$app->session->setFlash('success', 'Đã cập nhật thành công ' . $model->name . '!');
+                return $this->redirect(['view', 'id' => $model->id]);
+            } else {
+                Yii::$app->session->setFlash('error', 'Lỗi khi cập nhật sản phẩm!');
+            }
+        }
+
+        return $this->render('update', ['model' => $model]);
+    }
 
 
 
@@ -172,23 +177,16 @@ class ProductController extends Controller
 
     // Ví dụ trong ProductController
 // Ví dụ trong action BuyBookController
-public function actionBuybook()
-{
-    // Đoạn mã để lấy danh sách top 10 sản phẩm được mua nhiều nhất từ cơ sở dữ liệu
-    $top10Products = Product::find()
-        ->orderBy(['sales_count' => SORT_DESC]) // Sắp xếp giảm dần theo sales_count
-        ->limit(10) // Giới hạn trả về 10 kết quả
-        ->all();
+    public function actionBuybook()
+    {
+        // Đoạn mã để lấy danh sách top 10 sản phẩm được mua nhiều nhất từ cơ sở dữ liệu
+        $top10Products = Product::find()
+            ->orderBy(['sales_count' => SORT_DESC]) // Sắp xếp giảm dần theo sales_count
+            ->limit(10) // Giới hạn trả về 10 kết quả
+            ->all();
 
-    return $this->render('buybook', ['top10Products' => $top10Products]);
-}
-
-
-
-
-
-
-
+        return $this->render('buybook', ['top10Products' => $top10Products]);
+    }
 
 
     /**

@@ -31,6 +31,12 @@ class OrdersItemController extends Controller
                     [
                         'allow'=>true,
                         'roles'=>['@'],
+                        'matchCallback' => function ($rule,$action){
+                            if (Yii::$app->user->can('admin')){
+                                return true;
+                            }
+
+                        }
                     ],
                 ],
             ],

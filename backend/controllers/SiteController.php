@@ -35,6 +35,12 @@ class SiteController extends Controller
                         'actions' => ['logout', 'index'],
                         'allow' => true,
                         'roles' => ['@'],
+                        'matchCallback' => function ($rule,$action){
+                            if (Yii::$app->user->can('admin')){
+                                return true;
+                            }
+
+                        }
                     ],
                 ],
             ],
@@ -105,6 +111,12 @@ class SiteController extends Controller
             $bgColors[] = 'hsl(' . (360 / $colorCount * $i) . ', 70%, 50%)';
         }
 
+        $orders = Orders::find()
+            ->orderBy(['updated_at' => SORT_DESC])
+            ->limit(5)
+            ->asArray()
+            ->all();
+
         // Best rating products
         $bestRatingProducts = Product::find()
             ->select(['p.name','p.image' ,'AVG(r.rating) AS avg_rating'])
@@ -133,6 +145,7 @@ class SiteController extends Controller
             'labels' => $labels,
             'categoryLabels' => $categoryLabels,
             'bgColors' => $bgColors,
+            'orders' => $orders,
             'categoryData' => $categoryData,
             'bestRatingProducts' => $bestRatingProducts,
             'bestViewProducts' => $bestViewProducts,
