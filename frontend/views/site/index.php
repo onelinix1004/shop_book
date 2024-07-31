@@ -263,9 +263,7 @@ use backend\models\Category;
             <div class="row">
                 <?php
                 $count = 0;
-                foreach ($products
-
-                as $product):
+                foreach ($products as $product):
                 if ($count % 4 == 0 && $count != 0): ?>
             </div>
             <div class="row">
