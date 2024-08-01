@@ -263,7 +263,9 @@ use backend\models\Category;
             <div class="row">
                 <?php
                 $count = 0;
-                foreach ($products as $product):
+                foreach ($products
+
+                as $product):
                 if ($count % 4 == 0 && $count != 0): ?>
             </div>
             <div class="row">
@@ -281,11 +283,19 @@ use backend\models\Category;
                                 supplies</p>
                             <p class="price"><span><?php $s = number_format($product->price);
                                     echo 'Giá : ' . $s . ' VNĐ'; ?></span></p>
-                            <p><a href="<?= Yii::$app->urlManager->createUrl(
-                                    ['site/flipbook', 'id' => $product->id]) ?>"
-                                  class="btn btn-primary btn-outline-primary">Read Book</a>
-                            </p>
-                            <button class="btn btn-primary btn-outline-primary">Add to cart</button>
+                            <div style="display: flex; justify-content: center; gap: 10px;">
+                                <a href="<?= Yii::$app->urlManager->createUrl(['site/flipbook', 'id' => $product->id]) ?>"
+                                   class="btn btn-primary btn-outline-primary">Read Book</a>
+                                <form action="<?= Yii::$app->urlManager->createUrl(['cart/add-cart', 'id' => $product->id]) ?>"
+                                      method="POST"
+                                      style="display: inline;">
+                                    <input type="number" name="quantity" value="1" class="form-control input-number"
+                                           min="1" max="100" style="display: none;">
+                                    <button type="submit" class="btn btn-primary btn-outline-primary">
+                                        Add to Cart
+                                    </button>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -357,7 +367,7 @@ use backend\models\Category;
                     </blockquote>
                     <div class="author d-flex mt-4">
                         <div class="image mr-3 align-self-center">
-                            <img src="asset/images/person_4.jpg" alt="">
+                            <img src="asset/images/pexels-jhowfaria-2220316.jpg" alt="">
                         </div>
                         <div class="name align-self-center">Louise Kelly <span
                                     class="position">Illustrator Designer</span></div>
@@ -373,7 +383,7 @@ use backend\models\Category;
                     </blockquote>
                     <div class="author d-flex mt-4">
                         <div class="image mr-3 align-self-center">
-                            <img src="asset/images/person_2.jpg" alt="">
+                            <img src="asset/images/pexels-558331748-24709550.jpg" alt="">
                         </div>
                         <div class="name align-self-center">Louise Kelly <span
                                     class="position">Illustrator Designer</span></div>
@@ -388,7 +398,7 @@ use backend\models\Category;
                     </blockquote>
                     <div class="author d-flex mt-4">
                         <div class="image mr-3 align-self-center">
-                            <img src="asset/images/person_3.jpg" alt="">
+                            <img src="asset/images/pexels-alina-rossoshanska-338724645-24740647.jpg" alt="">
                         </div>
                         <div class="name align-self-center">Louise Kelly <span
                                     class="position">Illustrator Designer</span></div>
@@ -418,7 +428,7 @@ use backend\models\Category;
                     </blockquote>
                     <div class="author d-flex mt-4">
                         <div class="image mr-3 align-self-center">
-                            <img src="asset/images/person_3.jpg" alt="">
+                            <img src="frontend/web/asset/images/pexels-pervane-mustafa27-716709928-24988849.jpg" alt="">
                         </div>
                         <div class="name align-self-center">Louise Kelly <span
                                     class="position">Illustrator Designer</span></div>

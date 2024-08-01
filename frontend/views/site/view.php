@@ -289,9 +289,19 @@ use frontend\models\CommentForm;
                                 supplies</p>
                             <p class="price"><span><?php $s = number_format($item->price);
                                     echo 'Giá : ' . $s . ' VNĐ'; ?></span></p>
-                            <p><a href="<?= Yii::$app->urlManager->createUrl(
-                                    ['site/flipbook', 'id' => $item->id]) ?>"
-                                  class="btn btn-primary btn-outline-primary">Read Book</a></p>
+                            <div style="display: flex; justify-content: center; gap: 10px;">
+                                <a href="<?= Yii::$app->urlManager->createUrl(['site/flipbook', 'id' => $item->id]) ?>"
+                                   class="btn btn-primary btn-outline-primary">Read Book</a>
+                                <form action="<?= Yii::$app->urlManager->createUrl(['cart/add-cart', 'id' => $item->id]) ?>"
+                                      method="POST"
+                                      style="display: inline;">
+                                    <input type="number" name="quantity" value="1" class="form-control input-number"
+                                           min="1" max="100" style="display: none;">
+                                    <button type="submit" class="btn btn-primary btn-outline-primary">
+                                        Add to Cart
+                                    </button>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
