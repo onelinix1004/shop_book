@@ -161,23 +161,24 @@ use backend\models\Category;
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         const searchInput = document.getElementById("searchInput");
-        const articles = document.querySelectorAll(".articles .col-md-4");
+        const productItems = document.querySelectorAll(".col-xl-8 .col-md-4"); // Chọn các mục sản phẩm đúng
 
         searchInput.addEventListener("input", function () {
             const searchTerm = searchInput.value.trim().toLowerCase();
 
-            articles.forEach(function (article) {
-                const name = article.querySelector(".text span").innerText.toLowerCase();
+            productItems.forEach(function (item) {
+                const productName = item.querySelector(".product-name a").innerText.toLowerCase(); // Tìm tên sản phẩm
 
-                if (name.includes(searchTerm)) {
-                    article.style.display = "block";
+                if (productName.includes(searchTerm)) {
+                    item.style.display = "block"; // Hiển thị sản phẩm nếu tên chứa từ khóa tìm kiếm
                 } else {
-                    article.style.display = "none";
+                    item.style.display = "none"; // Ẩn sản phẩm nếu không chứa từ khóa tìm kiếm
                 }
             });
         });
     });
 </script>
+
 
 
 <!--prize-->
