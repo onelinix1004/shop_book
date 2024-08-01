@@ -14,36 +14,6 @@ use backend\models\Category;
 <html lang="en">
 <head>
     <title>Category</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-          integrity="sha512-MJ/56pBrhygBp+g9tOxTE4Z1BF7kfyuHXsKo+va4sfMq4P6IKdZDzNNhYHKrkBLclD9Sx8E86QZko2NCl1prA=="
-          crossorigin="anonymous" referrerpolicy="no-referrer"/>
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,700" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Great+Vibes" rel="stylesheet">
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flaticon@latest/css/flaticon.css">
-
-
-    <link rel="stylesheet" href="asset/css/open-iconic-bootstrap.min.css">
-    <link rel="stylesheet" href="asset/css//animate.css">
-
-    <link rel="stylesheet" href="asset/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="asset/css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="asset/css/magnific-popup.css">
-
-    <link rel="stylesheet" href="asset/css/aos.css">
-
-    <link rel="stylesheet" href="asset/css/ionicons.min.css">
-
-    <link rel="stylesheet" href="asset/css/bootstrap-datepicker.css">
-    <link rel="stylesheet" href="css/jquery.timepicker.css">
-
-
-    <link rel="stylesheet" href="asset/css/flaticon.css">
-    <link rel="stylesheet" href="asset/css/icomon.css">
-    <link rel="stylesheet" href="asset/css/style.css">
-
-
     <style>
         /* CSS for centering the search bar */
         .search-bar-container {

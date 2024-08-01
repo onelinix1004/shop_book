@@ -4,7 +4,6 @@
     <meta charset="utf-8">
     <title>Order Details</title>
     <!-- Add your CSS stylesheets here -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
         body {
             background-color: brown;
@@ -192,7 +191,7 @@
                     <div class="cash-payment">
                         <h3 style="padding-top: 50px; text-align: center; font-size: 20px">Thanh toán tiền mặt:</h3>
                         <p>Tổng số tiền bạn phải thanh toán:</p>
-                        <p style="color:red;"><?= convertToWords($total) ?> đồng.</p>
+                        <p style="color: yellow;"><?= convertToWords($total) ?> đồng.</p>
                         <!-- Additional content or instructions for cash payment can be added here. -->
                     </div>
                 </div>
@@ -200,7 +199,7 @@
                 <div class="col-lg-3 col-md-6 mt-5 cart-wrap ftco-animate offset-lg-6">
                     <div class="cart-total mb-3">
                         <h3>QR payment:</h3>
-                        <img src="assets\images\qr.jpg" alt="QR Code" style="width: 300px; height: 300px;">
+                        <img src="asset/images/z5688769897379_8a1888115925f83fd7d69af9f0b76cf7.jpg" alt="QR Code" style="width: 200px; height: 300px;">
                     </div>
                     <p class="text-center"><a href="index.php" class="btn btn-primary py-3 px-4">Tiếp tục mua hàng</a></p>
                 </div>
