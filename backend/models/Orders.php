@@ -97,4 +97,6 @@ class Orders extends \yii\db\ActiveRecord
     {
         return $this->hasMany(OrdersItem::className(), ['orders_id' => 'id']);
     }
+
+
 }

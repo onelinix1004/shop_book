@@ -115,10 +115,14 @@ class SiteController extends Controller
         }
 
         // Recent orders data
-        $orders = Orders::find()
-            ->orderBy(['updated_at' => SORT_DESC])
-            ->limit(5)
-            ->asArray()
+        $activity = Orders::findBySql("
+        SELECT orders.*, user.username
+        FROM orders
+        JOIN user ON user.id = orders.user_id
+        ORDER BY orders.updated_at DESC
+        LIMIT 5
+    ")
+            ->asArray() // Chuyển đổi kết quả thành mảng
             ->all();
 
         // Best-rated products data
@@ -150,6 +154,7 @@ class SiteController extends Controller
             'categoryLabels' => $categoryLabels,
             'bgColors' => $bgColors,
             'orders' => $orders,
+            'activity' => $activity,
             'categoryData' => $categoryData,
             'bestRatingProducts' => $bestRatingProducts,
             'bestViewProducts' => $bestViewProducts,

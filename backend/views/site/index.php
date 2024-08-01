@@ -148,31 +148,58 @@ $countContact = backend\models\Contact::find()->count();
         <div class="col-md-9">
             <div class="card card-chart">
                 <div class="card-header">
-                    <h5 class="card-title">Activity Order</h5>
+                    <h5 class="card-title">Order Activity</h5>
                 </div>
                 <div class="card-body">
                     <!-- Order and Status Information -->
                     <table class="table">
                         <thead>
                         <tr>
-                            <th>Order ID</th>
-                            <th>Date</th>
                             <th>Status</th>
+                            <th>Date</th>
+                            <th>Customer</th>
+                            <th>Amount</th>
+                            <th>Action</th> <!-- Thêm cột để hiển thị thông tin chi tiết -->
                         </tr>
                         </thead>
                         <tbody>
-                        <?php foreach ($orders as $order): ?>
+                        <?php foreach ($activity as $order): ?>
                             <tr>
-                                <td><?= $order['id'] ?></td>
-                                <td><?= date('d/m/Y', strtotime($order['updated_at'])) ?></td>
-                                <td><?= $order['status'] ?></td>
+                                <td>
+                                    <?php
+                                    if ($order['status'] == 0) {
+                                        echo '<i class="fa fa-circle text-warning"></i> Pending';
+                                    } else if ($order['status'] == 1) {
+                                        echo '<i class="fa fa-circle text-info"></i> Completed';
+                                    } else {
+                                        echo '<i class="fa fa-circle text-secondary"></i> Unknown';
+                                    }
+                                    ?>
+                                </td>
+                                <td><?= date('M j, 2024, g:i:s A', strtotime($order['created_at'])) ?></td>
+
+                                <td>
+                                    <?php
+                                    if ($order['status'] == 0) {
+                                        // Hiển thị thông tin khách hàng
+                                        echo htmlspecialchars($order['username']);
+                                    }
+                                    ?>
+                                </td>
+                                <td><?php echo htmlspecialchars($order['amount']); ?> </td>
+                                <td>
+                                    <a href="<?= Yii::$app->urlManager->createUrl(['orders/view', 'id' => $order['id']]) ?>"
+                                       style="width: 30px; height: 10px">Detail</a>
+                                </td>
+
                             </tr>
                         <?php endforeach; ?>
                         </tbody>
                     </table>
-                    <div class="chart-legend">
-                        <i class="fa fa-circle text-info"></i> Orders
-                        <i class="fa fa-circle text-warning"></i> Revenue
+                    <div class="chart-legend" style="margin-top: 10px;">
+                        <i class="fa fa-circle text-info"></i> Completed
+                        <i class="fa fa-circle text-warning"></i> Pending
+                        <i class="fa fa-circle text-secondary"></i> Unknown
                     </div>
                 </div>
             </div>
